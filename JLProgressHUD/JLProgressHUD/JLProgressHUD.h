@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JLSingleColorProgressHUD.h"
+//#import "JLSingleColorProgressHUD.h"
 #import "JLNoSingleColorProgressHUD.h"
 
 @interface JLProgressHUD : NSObject
@@ -20,7 +20,7 @@
 
 + (void)dismissNoSingleColorProgressHUD;
 
-+ (void)showReloadViewToView:(UIView *)view withDelegate:(id)delegate;
+/*+ (void)showReloadViewToView:(UIView *)view withDelegate:(id)delegate;
 
 + (void)showSingleColorProgressHUDWithStatus:(NSString *)status;
 + (void)showSingleColorProgressHUDProgress:(float)progress;
@@ -30,6 +30,6 @@
 
 + (void)showSingleColorProgressHUDImage:(UIImage*)image;
 + (void)showSingleColorProgressHUDImage:(UIImage*)image status:(NSString*)status;
-+ (void)dismissSingleColorProgressHUD;
++ (void)dismissSingleColorProgressHUD;*/
 
 @end

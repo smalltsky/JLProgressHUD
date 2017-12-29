@@ -35,7 +35,7 @@
     [JLNoSingleColorProgressHUD dismiss];
 }
 
-+ (void)showReloadViewToView:(UIView *)view withDelegate:(id)delegate
+/*+ (void)showReloadViewToView:(UIView *)view withDelegate:(id)delegate
 {
     [JLSingleColorProgressHUD showReloadViewToView:view withDelegate:delegate];
 }
@@ -78,7 +78,7 @@
 + (void)dismissSingleColorProgressHUD
 {
     [JLSingleColorProgressHUD dismiss];
-}
+}*/
 
 
 
