@@ -16,7 +16,6 @@
 		0D9433FF1FF5C37F0024D288 /* JLProgressHUDUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9433FE1FF5C37F0024D288 /* JLProgressHUDUITests.m */; };
 		0D9434151FF5C3AF0024D288 /* JLNoSingleColorProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D94340E1FF5C3AF0024D288 /* JLNoSingleColorProgressHUD.m */; };
 		0D9434161FF5C3AF0024D288 /* JLProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9434101FF5C3AF0024D288 /* JLProgressHUD.m */; };
-		0D9434171FF5C3AF0024D288 /* JLSingleColorProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9434121FF5C3AF0024D288 /* JLSingleColorProgressHUD.m */; };
 		0D9434181FF5C3AF0024D288 /* UIColor+css.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9434141FF5C3AF0024D288 /* UIColor+css.m */; };
 		72AD2B036771D4BBD70B0E75 /* libPods-JLProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94CEA55FC538A764C1DA4FD8 /* libPods-JLProgressHUD.a */; };
 /* End PBXBuildFile section */
@@ -58,8 +57,6 @@
 		0D94340E1FF5C3AF0024D288 /* JLNoSingleColorProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLNoSingleColorProgressHUD.m; sourceTree = "<group>"; };
 		0D94340F1FF5C3AF0024D288 /* JLProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLProgressHUD.h; sourceTree = "<group>"; };
 		0D9434101FF5C3AF0024D288 /* JLProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLProgressHUD.m; sourceTree = "<group>"; };
-		0D9434111FF5C3AF0024D288 /* JLSingleColorProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLSingleColorProgressHUD.h; sourceTree = "<group>"; };
-		0D9434121FF5C3AF0024D288 /* JLSingleColorProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLSingleColorProgressHUD.m; sourceTree = "<group>"; };
 		0D9434131FF5C3AF0024D288 /* UIColor+css.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+css.h"; sourceTree = "<group>"; };
 		0D9434141FF5C3AF0024D288 /* UIColor+css.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+css.m"; sourceTree = "<group>"; };
 		94CEA55FC538A764C1DA4FD8 /* libPods-JLProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JLProgressHUD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,8 +153,6 @@
 				0D94340E1FF5C3AF0024D288 /* JLNoSingleColorProgressHUD.m */,
 				0D94340F1FF5C3AF0024D288 /* JLProgressHUD.h */,
 				0D9434101FF5C3AF0024D288 /* JLProgressHUD.m */,
-				0D9434111FF5C3AF0024D288 /* JLSingleColorProgressHUD.h */,
-				0D9434121FF5C3AF0024D288 /* JLSingleColorProgressHUD.m */,
 				0D9434131FF5C3AF0024D288 /* UIColor+css.h */,
 				0D9434141FF5C3AF0024D288 /* UIColor+css.m */,
 			);
@@ -373,7 +368,6 @@
 				0D9433DF1FF5C37F0024D288 /* ViewController.m in Sources */,
 				0D9434181FF5C3AF0024D288 /* UIColor+css.m in Sources */,
 				0D9434161FF5C3AF0024D288 /* JLProgressHUD.m in Sources */,
-				0D9434171FF5C3AF0024D288 /* JLSingleColorProgressHUD.m in Sources */,
 				0D9434151FF5C3AF0024D288 /* JLNoSingleColorProgressHUD.m in Sources */,
 				0D9433EA1FF5C37F0024D288 /* main.m in Sources */,
 				0D9433DC1FF5C37F0024D288 /* AppDelegate.m in Sources */,
