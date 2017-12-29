@@ -11,7 +11,6 @@
 		0D9433DF1FF5C37F0024D288 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9433DE1FF5C37F0024D288 /* ViewController.m */; };
 		0D9433E21FF5C37F0024D288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D9433E01FF5C37F0024D288 /* Main.storyboard */; };
 		0D9433E41FF5C37F0024D288 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D9433E31FF5C37F0024D288 /* Assets.xcassets */; };
-		0D9433E71FF5C37F0024D288 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D9433E51FF5C37F0024D288 /* LaunchScreen.storyboard */; };
 		0D9433EA1FF5C37F0024D288 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9433E91FF5C37F0024D288 /* main.m */; };
 		0D9433F41FF5C37F0024D288 /* JLProgressHUDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9433F31FF5C37F0024D288 /* JLProgressHUDTests.m */; };
 		0D9433FF1FF5C37F0024D288 /* JLProgressHUDUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9433FE1FF5C37F0024D288 /* JLProgressHUDUITests.m */; };
@@ -47,7 +46,6 @@
 		0D9433DE1FF5C37F0024D288 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0D9433E11FF5C37F0024D288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0D9433E31FF5C37F0024D288 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0D9433E61FF5C37F0024D288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D9433E81FF5C37F0024D288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D9433E91FF5C37F0024D288 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0D9433EF1FF5C37F0024D288 /* JLProgressHUDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JLProgressHUDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,7 +125,6 @@
 				0D9433DE1FF5C37F0024D288 /* ViewController.m */,
 				0D9433E01FF5C37F0024D288 /* Main.storyboard */,
 				0D9433E31FF5C37F0024D288 /* Assets.xcassets */,
-				0D9433E51FF5C37F0024D288 /* LaunchScreen.storyboard */,
 				0D9433E81FF5C37F0024D288 /* Info.plist */,
 				0D9433E91FF5C37F0024D288 /* main.m */,
 			);
@@ -293,7 +290,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D9433E71FF5C37F0024D288 /* LaunchScreen.storyboard in Resources */,
 				0D9433E41FF5C37F0024D288 /* Assets.xcassets in Resources */,
 				0D9433E21FF5C37F0024D288 /* Main.storyboard in Resources */,
 			);
@@ -424,14 +420,6 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		0D9433E51FF5C37F0024D288 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0D9433E61FF5C37F0024D288 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -544,6 +532,7 @@
 			baseConfigurationReference = AE9F32117C19956BC3AF1A50 /* Pods-JLProgressHUD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SKTQB76FY;
 				INFOPLIST_FILE = JLProgressHUD/Info.plist;
@@ -551,7 +540,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liuqitian.JLProgressHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -560,6 +549,7 @@
 			baseConfigurationReference = C22CFE830F7C20FFDEA3BAF8 /* Pods-JLProgressHUD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SKTQB76FY;
 				INFOPLIST_FILE = JLProgressHUD/Info.plist;
@@ -567,7 +557,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liuqitian.JLProgressHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
