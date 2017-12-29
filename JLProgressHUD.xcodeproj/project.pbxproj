@@ -24,6 +24,7 @@
 		0D9434261FF5C3C40024D288 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0D94341F1FF5C3C30024D288 /* SVProgressHUD.bundle */; };
 		0D9434271FF5C3C40024D288 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9434211FF5C3C30024D288 /* SVProgressHUD.m */; };
 		0D9434281FF5C3C40024D288 /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9434231FF5C3C30024D288 /* SVRadialGradientLayer.m */; };
+		72AD2B036771D4BBD70B0E75 /* libPods-JLProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94CEA55FC538A764C1DA4FD8 /* libPods-JLProgressHUD.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,9 @@
 		0D9434211FF5C3C30024D288 /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
 		0D9434221FF5C3C30024D288 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
 		0D9434231FF5C3C30024D288 /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		94CEA55FC538A764C1DA4FD8 /* libPods-JLProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JLProgressHUD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE9F32117C19956BC3AF1A50 /* Pods-JLProgressHUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLProgressHUD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JLProgressHUD/Pods-JLProgressHUD.debug.xcconfig"; sourceTree = "<group>"; };
+		C22CFE830F7C20FFDEA3BAF8 /* Pods-JLProgressHUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLProgressHUD.release.xcconfig"; path = "Pods/Target Support Files/Pods-JLProgressHUD/Pods-JLProgressHUD.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72AD2B036771D4BBD70B0E75 /* libPods-JLProgressHUD.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,8 @@
 				0D9433F21FF5C37F0024D288 /* JLProgressHUDTests */,
 				0D9433FD1FF5C37F0024D288 /* JLProgressHUDUITests */,
 				0D9433D81FF5C37F0024D288 /* Products */,
+				14A83E2F6AE60E0615E4F4EE /* Pods */,
+				3C4A6CD2770E25AB276562BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -193,6 +200,23 @@
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
+		14A83E2F6AE60E0615E4F4EE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AE9F32117C19956BC3AF1A50 /* Pods-JLProgressHUD.debug.xcconfig */,
+				C22CFE830F7C20FFDEA3BAF8 /* Pods-JLProgressHUD.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		3C4A6CD2770E25AB276562BF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				94CEA55FC538A764C1DA4FD8 /* libPods-JLProgressHUD.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -200,9 +224,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D9434031FF5C37F0024D288 /* Build configuration list for PBXNativeTarget "JLProgressHUD" */;
 			buildPhases = (
+				A67461CABCFF8296DF014A26 /* [CP] Check Pods Manifest.lock */,
 				0D9433D31FF5C37F0024D288 /* Sources */,
 				0D9433D41FF5C37F0024D288 /* Frameworks */,
 				0D9433D51FF5C37F0024D288 /* Resources */,
+				53DB726DFEB41ACACF60BC24 /* [CP] Embed Pods Frameworks */,
+				D595EB33E7CB7F1FDA551D20 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -321,6 +348,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		53DB726DFEB41ACACF60BC24 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JLProgressHUD/Pods-JLProgressHUD-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A67461CABCFF8296DF014A26 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JLProgressHUD-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D595EB33E7CB7F1FDA551D20 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JLProgressHUD/Pods-JLProgressHUD-resources.sh",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JLProgressHUD/Pods-JLProgressHUD-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0D9433D31FF5C37F0024D288 /* Sources */ = {
@@ -498,11 +579,13 @@
 		};
 		0D9434041FF5C37F0024D288 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE9F32117C19956BC3AF1A50 /* Pods-JLProgressHUD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SKTQB76FY;
 				INFOPLIST_FILE = JLProgressHUD/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liuqitian.JLProgressHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -512,11 +595,13 @@
 		};
 		0D9434051FF5C37F0024D288 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C22CFE830F7C20FFDEA3BAF8 /* Pods-JLProgressHUD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SKTQB76FY;
 				INFOPLIST_FILE = JLProgressHUD/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liuqitian.JLProgressHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
