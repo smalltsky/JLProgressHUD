@@ -5,7 +5,7 @@
 //  Created by 刘奇天 on 2017/12/25.
 //
 
-#import <UIKit/UIKit.h>
+#import "SVProgressHUD.h"
 
 @protocol JLSingleColorProgressHUDDelegate <NSObject>
 
@@ -13,7 +13,7 @@
 
 @end
 
-@interface JLSingleColorProgressHUD : UIView
+@interface JLSingleColorProgressHUD : SVProgressHUD
 
 + (void)showReloadViewToView:(UIView *)view withDelegate:(id)delegate;
 

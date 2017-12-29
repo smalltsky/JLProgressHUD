@@ -6,7 +6,6 @@
 //
 
 #import "JLProgressHUD.h"
-#import "SVProgressHUD.h"
 
 
 @implementation JLProgressHUD
@@ -43,42 +42,42 @@
 
 + (void)showSingleColorProgressHUDWithStatus:(NSString *)status
 {
-    [SVProgressHUD showWithStatus:status];
+    [JLSingleColorProgressHUD showWithStatus:status];
 }
 
 + (void)showSingleColorProgressHUDProgress:(float)progress
 {
-    [SVProgressHUD showProgress:progress];
+    [JLSingleColorProgressHUD showProgress:progress];
 }
 
 + (void)showSingleColorProgressHUDInfoWithStatus:(NSString*)status
 {
-    [SVProgressHUD showInfoWithStatus:status];
+    [JLSingleColorProgressHUD showInfoWithStatus:status];
 }
 
 + (void)showSingleColorProgressHUDSuccessWithStatus:(NSString*)status
 {
-    [SVProgressHUD showSuccessWithStatus:status];
+    [JLSingleColorProgressHUD showSuccessWithStatus:status];
 }
 
 + (void)showSingleColorProgressHUDErrorWithStatus:(NSString*)status
 {
-    [SVProgressHUD showErrorWithStatus:status];
+    [JLSingleColorProgressHUD showErrorWithStatus:status];
 }
 
 + (void)showSingleColorProgressHUDImage:(UIImage*)image
 {
-    [SVProgressHUD showImage:image status:nil];
+    [JLSingleColorProgressHUD showImage:image status:nil];
 }
 
 + (void)showSingleColorProgressHUDImage:(UIImage*)image status:(NSString*)status
 {
-    [SVProgressHUD showImage:image status:status];
+    [JLSingleColorProgressHUD showImage:image status:status];
 }
 
 + (void)dismissSingleColorProgressHUD
 {
-    [SVProgressHUD dismiss];
+    [JLSingleColorProgressHUD dismiss];
 }
 
 
