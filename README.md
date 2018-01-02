@@ -16,14 +16,4 @@ JLProgressHUD.h
 
 + (void)showReloadViewToView:(UIView *)view withDelegate:(id)delegate;
 
-//单一颜色方法
-+ (void)showSingleColorProgressHUDWithStatus:(NSString *)status;
-+ (void)showSingleColorProgressHUDProgress:(float)progress;
-+ (void)showSingleColorProgressHUDInfoWithStatus:(NSString*)status;
-+ (void)showSingleColorProgressHUDSuccessWithStatus:(NSString*)status;
-+ (void)showSingleColorProgressHUDErrorWithStatus:(NSString*)status;
-
-+ (void)showSingleColorProgressHUDImage:(UIImage*)image;
-+ (void)showSingleColorProgressHUDImage:(UIImage*)image status:(NSString*)status;
-+ (void)dismissSingleColorProgressHUD;
 
