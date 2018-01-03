@@ -1,35 +1,33 @@
 //
-//  JLNoSingleProgressHUD.m
-//  JLNoSingleProgressHUD
+//  JLLoadingAnimatedView.m
+//  JLProgressHUD
 //
-//  Created by 刘奇天 on 2017/12/25.
+//  Created by smalltsky on 2017/12/29.
+//  Copyright (c) 2017-2018 smalltsky. All rights reserved.
 //
 
-#import "JLNoSingleColorProgressHUD.h"
+#import "JLLoadingAnimatedView.h"
+#import "UIColor+css.h"
 
-@interface JLNoSingleColorProgressHUD ()
+@implementation JLLoadingAnimatedView
 
-@end
-
-@implementation JLNoSingleColorProgressHUD
-
-+ (void)showType:(JLSizeType)type toView:(UIView *)view
++ (instancetype)showType:(JLJLLoadingAnimatedViewSizeType)type toView:(UIView *)view
 {
-    [self showType:type withLineColor:nil andLineWidth:3.0 toView:view];
+    return [self showType:type withLineColor:nil andLineWidth:3.0 toView:view];
 }
-+ (void)showType:(JLSizeType)type withLineColor:(NSArray *)lineColor toView:(UIView *)view
++ (instancetype)showType:(JLJLLoadingAnimatedViewSizeType)type withLineColor:(NSArray *)lineColor toView:(UIView *)view
 {
-    [self showType:type withLineColor:lineColor andLineWidth:3.0 toView:view];
+   return [self showType:type withLineColor:lineColor andLineWidth:3.0 toView:view];
 }
 
-+ (void)showType:(JLSizeType)type withLineWidth:(CGFloat)lineWidth toView:(UIView *)view
++ (instancetype)showType:(JLJLLoadingAnimatedViewSizeType)type withLineWidth:(CGFloat)lineWidth toView:(UIView *)view
 {
-    [self showType:type withLineColor:nil andLineWidth:lineWidth toView:view];
+   return [self showType:type withLineColor:nil andLineWidth:lineWidth toView:view];
 }
 
-+ (void)showType:(JLSizeType)type withLineColor:(NSArray *)lineColor andLineWidth:(CGFloat)lineWidth toView:(UIView *)view
++ (instancetype)showType:(JLJLLoadingAnimatedViewSizeType)type withLineColor:(NSArray *)lineColor andLineWidth:(CGFloat)lineWidth toView:(UIView *)view
 {
-    [[JLNoSingleColorProgressHUD sharedViewAndType:type] showType:type withLineColor:lineColor andLineWidth:lineWidth toView:view];
+    return [[JLLoadingAnimatedView sharedViewAndType:type] showType:type withLineColor:lineColor andLineWidth:lineWidth toView:view];
 }
 
 + (void)dismiss
@@ -39,50 +37,48 @@
 
 + (void)dismissWithDelay:(NSTimeInterval)delay
 {
-    [[self sharedViewAndType:JLSizeTypeNormal] dismissWithDelay:delay];
+    [[self sharedViewAndType:JLJLLoadingAnimatedViewSizeTypeNormal] dismissWithDelay:delay];
 }
 
-+ (JLNoSingleColorProgressHUD *)sharedViewAndType:(JLSizeType)type
++ (JLLoadingAnimatedView *)sharedViewAndType:(JLJLLoadingAnimatedViewSizeType)type
 {
     return [[self alloc] initWithSizeType:type];
 }
 
 +(instancetype)allocWithZone:(struct _NSZone *)zone
 {
-    static JLNoSingleColorProgressHUD *toolAudio;
+    static JLLoadingAnimatedView *toolAudio;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^
     {
-        
         toolAudio = [super allocWithZone:zone];
-        
+                      
     });
     
     return toolAudio;
 }
 
-- (instancetype)initWithSizeType:(JLSizeType)type
+- (instancetype)initWithSizeType:(JLJLLoadingAnimatedViewSizeType)type
 {
     NSCAssert(type, @"必须传type");
-    if (type == JLSizeTypeBig)
+    CGRect rect = CGRectMake(0, 0, 0, 0);
+    if (type == JLJLLoadingAnimatedViewSizeTypeNormal)
     {
-        return [self initWithFrame:CGRectMake(0, 0, 80, 80)];
-    }
-    else if (type == JLSizeTypeNormal)
-    {
-        return [self initWithFrame:CGRectMake(0, 0, 60, 60)];
-    }
-    else if (type == JLSizeTypeSmall)
-    {
-        return [self initWithFrame:CGRectMake(0, 0, 40, 40)];
-    }
-    else
-    {
-        return nil;
+        rect = CGRectMake(0, 0, 60, 60);
     }
     
-    return nil;
+    if (type == JLJLLoadingAnimatedViewSizeTypeSmall)
+    {
+        rect = CGRectMake(0, 0, 40, 40);
+    }
+    
+    if (type == JLJLLoadingAnimatedViewSizeTypeBig)
+    {
+        rect = CGRectMake(0, 0, 80, 80);
+    }
+    
+    return [self initWithFrame:rect];
 }
 
 
@@ -109,6 +105,7 @@
 {
     NSAssert(self.lineWidth > 0.0, @"lineWidth must great than zero");
     NSAssert(self.lineColor.count > 0, @"lineColor must set");
+    
     
     //外层旋转动画
     CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
@@ -188,33 +185,49 @@
      }];
 }
 
-- (void)showType:(JLSizeType)type withLineColor:(NSArray *)lineColor andLineWidth:(CGFloat)lineWidth toView:(UIView *)view
+- (instancetype)showType:(JLJLLoadingAnimatedViewSizeType)type withLineColor:(NSArray *)lineColor andLineWidth:(CGFloat)lineWidth toView:(UIView *)view
 {
-    __weak JLNoSingleColorProgressHUD * weakSelf = self;
+    __weak JLLoadingAnimatedView * weakSelf = self;
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^
-    {
-        __strong JLNoSingleColorProgressHUD *strongSelf = weakSelf;
-        
-        if (strongSelf)
-        {
-            if (lineColor)
-            {
-                self.lineColor = lineColor;
-            }
-            
-            if (lineWidth)
-            {
-                self.lineWidth = lineWidth;
-            }
-            
-            self.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,[UIScreen mainScreen].bounds.size.height/2);
-            [self setup];
-            [view addSubview:self];
-        }
-    }];
+     {
+         __strong JLLoadingAnimatedView *strongSelf = weakSelf;
+         
+         if (strongSelf)
+         {
+             if (lineColor)
+             {
+                 strongSelf.lineColor = lineColor;
+             }
+             
+             if (lineWidth)
+             {
+                 strongSelf.lineWidth = lineWidth;
+             }
+             
+             if (view.frame.size.width == [UIScreen mainScreen].bounds.size.width && view.frame.size.height == [UIScreen mainScreen].bounds.size.height)
+             {
+                 strongSelf.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,[UIScreen mainScreen].bounds.size.height/2);
+             }
+             else if (view.frame.size.width == [UIScreen mainScreen].bounds.size.width)
+             {
+                 strongSelf.center = CGPointMake([UIScreen mainScreen].bounds.size.width/2,view.frame.size.height/2);
+             }
+             else if (view.frame.size.height == [UIScreen mainScreen].bounds.size.height)
+             {
+                 strongSelf.center = CGPointMake(view.frame.size.width/2,[UIScreen mainScreen].bounds.size.height/2);
+             }
+             else
+             {
+                 strongSelf.center = CGPointMake(view.frame.size.width/2,view.frame.size.height/2-10);
+             }
+             
+             [strongSelf setup];
+             [view addSubview:strongSelf];
+         }
+     }];
     
-    
+    return weakSelf;
 }
 
 @end

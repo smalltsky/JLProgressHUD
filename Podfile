@@ -5,5 +5,4 @@
 
 target "JLProgressHUD" do
 
-pod 'SVProgressHUD'
 end

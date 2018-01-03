@@ -1,9 +1,9 @@
 //
 //  UIColor+css.h
-//  KJCF
+//  JLProgressHUD
 //
-//  Created by KuaiJie on 2017/12/9.
-//  Copyright © 2017年 KuaiJie. All rights reserved.
+//  Created by smalltsky on 2017/12/9.
+//  Copyright (c) 2017-2018 smalltsky. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -11,5 +11,7 @@
 @interface UIColor (css)
 
 +(UIColor *)colorWithCss:(NSNumber *)css;
+
++(UIColor *)colorWithCss:(NSNumber *)css alpha:(CGFloat)alpha;
 
 @end

@@ -1,13 +1,14 @@
 //
-//  SVProgressAnimatedView.h
-//  SVProgressHUD, https://github.com/SVProgressHUD/SVProgressHUD
+//  JLProgressAnimatedView.h
+//  JLProgressHUD
 //
-//  Copyright (c) 2017 Tobias Tiemerding. All rights reserved.
+//  Created by smalltsky on 2018/1/2.
+//  Copyright (c) 2017-2018 smalltsky. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface SVProgressAnimatedView : UIView
+@interface JLProgressAnimatedView : UIView
 
 @property (nonatomic, assign) CGFloat radius;
 @property (nonatomic, assign) CGFloat strokeThickness;

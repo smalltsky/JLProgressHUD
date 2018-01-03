@@ -1,35 +1,76 @@
 //
 //  JLProgressHUD.h
-//  iOS Demo
+//  JLProgressHUD
 //
-//  Created by KuaiJie on 2017/12/25.
+//  Created by smalltsky on 2017/12/25.
+//  Copyright (c) 2017-2018 smalltsky. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-//#import "JLSingleColorProgressHUD.h"
-#import "JLNoSingleColorProgressHUD.h"
+#import <UIKit/UIKit.h>
 
-@interface JLProgressHUD : NSObject
+typedef NS_ENUM(NSInteger,JLProgressHUDStandardWidthType)
+{
+    JLProgressHUDStandardWidthTypeNormal = 1 << 0,
+    JLProgressHUDStandardWidthTypeSmall = 1 << 1,
+};
 
-+ (void)showNoSingleColorProgressHUDType:(JLSizeType)type toView:(UIView *)view;
+typedef NS_ENUM(NSInteger,JLProgressHUDType)
+{
+    JLProgressHUDTypeNormal = 1 << 0,
+    JLProgressHUDTypeProgress = 1 << 1,
+    JLProgressHUDTypeImage = 1 << 2,
+};
 
-+ (void)showNoSingleColorProgressHUDType:(JLSizeType)type withLineColor:(NSArray *)lineColor toView:(UIView *)view;
-+ (void)showNoSingleColorProgressHUDType:(JLSizeType)type withLineWidth:(CGFloat)lineWidth toView:(UIView *)view;
+typedef NS_ENUM(NSInteger,JLProgressHUDNormalColorType)
+{
+    JLProgressHUDNormalColorTypeColor = 1 << 0,
+    JLProgressHUDNormalColorTypeWhite = 1 << 1,
+    JLProgressHUDNormalColorTypeBlack = 1 << 2,
+};
 
-+ (void)showNoSingleColorProgressHUDType:(JLSizeType)type withLineColor:(NSArray *)lineColor andLineWidth:(CGFloat)lineWidth toView:(UIView *)view;
+typedef NS_ENUM(NSInteger,JLProgressHUDStyleType)
+{
+    JLProgressHUDStyleTypeWhite = 1 << 0,
+    JLProgressHUDStyleTypeBlack = 1 << 1,
+};
 
-+ (void)dismissNoSingleColorProgressHUD;
+@interface JLProgressHUD : UIView
 
-/*+ (void)showReloadViewToView:(UIView *)view withDelegate:(id)delegate;
+//默认 为黑色
+@property (nonatomic,assign) JLProgressHUDNormalColorType colorType;
+//默认 为白色
+@property (nonatomic,assign) JLProgressHUDStyleType styleType;
+//默认 JLProgressHUDStandardWidthTypeNormal
+@property (nonatomic,assign) JLProgressHUDStandardWidthType standardWidthType;
+//默认 为14.0
+@property (nonatomic,strong) UIFont *statusFont;
+//默认 为灰色 只有JLProgressHUDType类型为JLProgressHUDTypeProgress时有用
+@property (nonatomic,strong) UIColor *allProgressColor;
+//默认 为红色 只有JLProgressHUDType类型为JLProgressHUDTypeProgress时有用
+@property (nonatomic,strong) UIColor *noAllProgressColor;
 
-+ (void)showSingleColorProgressHUDWithStatus:(NSString *)status;
-+ (void)showSingleColorProgressHUDProgress:(float)progress;
-+ (void)showSingleColorProgressHUDInfoWithStatus:(NSString*)status;
-+ (void)showSingleColorProgressHUDSuccessWithStatus:(NSString*)status;
-+ (void)showSingleColorProgressHUDErrorWithStatus:(NSString*)status;
+//默认 为27x27
+@property (nonatomic,assign) CGSize imageViewSize UI_APPEARANCE_SELECTOR;
 
-+ (void)showSingleColorProgressHUDImage:(UIImage*)image;
-+ (void)showSingleColorProgressHUDImage:(UIImage*)image status:(NSString*)status;
-+ (void)dismissSingleColorProgressHUD;*/
++ (JLProgressHUD *)sharedView;
+
++ (void)showWithStatus:(NSString*)status;
+
++ (void)showInfoWithStatus:(NSString *)status;
++ (void)showSuccessWithStatus:(NSString *)status;
++ (void)showFailureWithStatus:(NSString *)status;
+
++ (void)showWithImage:(UIImage *)image Status:(NSString *)status;
++ (void)showWithProgress:(NSNumber *)progress Status:(NSString *)status;
+
++ (void)showProgress:(JLProgressHUDType)type status:(NSString *)status colors:(NSArray *)colors Progress:(NSNumber *)progress image:(UIImage *)image;
+
+- (void)showProgress:(JLProgressHUDType)type status:(NSString *)status colors:(NSArray *)colors Progress:(NSNumber *)progress image:(UIImage *)image;
+
++ (void)dismiss;
++ (void)dismissWithDelay:(NSTimeInterval)delay;
+
+- (void)dismiss;
+- (void)dismissWithDelay:(NSTimeInterval)delay;
 
 @end

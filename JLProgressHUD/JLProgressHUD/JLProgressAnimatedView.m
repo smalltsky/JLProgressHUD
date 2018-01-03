@@ -1,30 +1,36 @@
 //
-//  SVProgressAnimatedView.m
-//  SVProgressHUD, https://github.com/SVProgressHUD/SVProgressHUD
+//  JLProgressAnimatedView.m
+//  JLProgressHUD
 //
-//  Copyright (c) 2017 Tobias Tiemerding. All rights reserved.
+//  Created by smalltsky on 2018/1/2.
+//  Copyright (c) 2017-2018 smalltsky. All rights reserved.
 //
 
-#import "SVProgressAnimatedView.h"
+#import "JLProgressAnimatedView.h"
 
-@interface SVProgressAnimatedView ()
+@interface JLProgressAnimatedView()
 
 @property (nonatomic, strong) CAShapeLayer *ringAnimatedLayer;
 
 @end
 
-@implementation SVProgressAnimatedView
+@implementation JLProgressAnimatedView
 
-- (void)willMoveToSuperview:(UIView*)newSuperview {
-    if (newSuperview) {
+- (void)willMoveToSuperview:(UIView *)newSuperview
+{
+    if (newSuperview)
+    {
         [self layoutAnimatedLayer];
-    } else {
+    }
+    else
+    {
         [_ringAnimatedLayer removeFromSuperlayer];
         _ringAnimatedLayer = nil;
     }
 }
 
-- (void)layoutAnimatedLayer {
+- (void)layoutAnimatedLayer
+{
     CALayer *layer = self.ringAnimatedLayer;
     [self.layer addSublayer:layer];
     
@@ -33,8 +39,10 @@
     layer.position = CGPointMake(CGRectGetWidth(self.bounds) - CGRectGetWidth(layer.bounds) / 2 - widthDiff / 2, CGRectGetHeight(self.bounds) - CGRectGetHeight(layer.bounds) / 2 - heightDiff / 2);
 }
 
-- (CAShapeLayer*)ringAnimatedLayer {
-    if(!_ringAnimatedLayer) {
+- (CAShapeLayer *)ringAnimatedLayer
+{
+    if(!_ringAnimatedLayer)
+    {
         CGPoint arcCenter = CGPointMake(self.radius+self.strokeThickness/2+5, self.radius+self.strokeThickness/2+5);
         UIBezierPath* smoothedPath = [UIBezierPath bezierPathWithArcCenter:arcCenter radius:self.radius startAngle:(CGFloat)-M_PI_2 endAngle:(CGFloat) (M_PI + M_PI_2) clockwise:YES];
         
@@ -48,49 +56,61 @@
         _ringAnimatedLayer.lineJoin = kCALineJoinBevel;
         _ringAnimatedLayer.path = smoothedPath.CGPath;
     }
+    
     return _ringAnimatedLayer;
 }
 
-- (void)setFrame:(CGRect)frame {
-    if(!CGRectEqualToRect(frame, super.frame)) {
+- (void)setFrame:(CGRect)frame
+{
+    if(!CGRectEqualToRect(frame, super.frame))
+    {
         [super setFrame:frame];
         
-        if(self.superview) {
+        if(self.superview)
+        {
             [self layoutAnimatedLayer];
         }
     }
 }
 
-- (void)setRadius:(CGFloat)radius {
-    if(radius != _radius) {
+- (void)setRadius:(CGFloat)radius
+{
+    if(radius != _radius)
+    {
         _radius = radius;
         
         [_ringAnimatedLayer removeFromSuperlayer];
         _ringAnimatedLayer = nil;
         
-        if(self.superview) {
+        if(self.superview)
+        {
             [self layoutAnimatedLayer];
         }
     }
 }
 
-- (void)setStrokeColor:(UIColor*)strokeColor {
+- (void)setStrokeColor:(UIColor *)strokeColor
+{
     _strokeColor = strokeColor;
     _ringAnimatedLayer.strokeColor = strokeColor.CGColor;
 }
 
-- (void)setStrokeThickness:(CGFloat)strokeThickness {
+- (void)setStrokeThickness:(CGFloat)strokeThickness
+{
     _strokeThickness = strokeThickness;
     _ringAnimatedLayer.lineWidth = _strokeThickness;
 }
 
-- (void)setStrokeEnd:(CGFloat)strokeEnd {
+- (void)setStrokeEnd:(CGFloat)strokeEnd
+{
     _strokeEnd = strokeEnd;
     _ringAnimatedLayer.strokeEnd = _strokeEnd;
 }
 
-- (CGSize)sizeThatFits:(CGSize)size {
+- (CGSize)sizeThatFits:(CGSize)size
+{
     return CGSizeMake((self.radius+self.strokeThickness/2+5)*2, (self.radius+self.strokeThickness/2+5)*2);
 }
+
 
 @end
