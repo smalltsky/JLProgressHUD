@@ -260,6 +260,12 @@
             
             if (type == JLProgressHUDTypeNormal)
             {
+                if (colors)
+                {
+                    strongSelf.colorType = JLProgressHUDNormalColorTypeColor;
+                    strongSelf.loadingAnimatedView.lineColor = colors;
+                }
+                
                 strongSelf.loadingAnimatedView.lineWidth = 3.0;
             }
             
@@ -428,11 +434,29 @@
         color = [UIColor colorWithCss:@(0xeeeeee) alpha:0.8];
     }
     
+    if (self.colorType == JLProgressHUDNormalColorTypeColor)
+    {
+        if (self.styleType == JLProgressHUDStyleTypeBlack)
+        {
+            color = [UIColor colorWithCss:@(0xeeeeee) alpha:0.8];
+        }
+        
+        if (self.styleType == JLProgressHUDStyleTypeWhite)
+        {
+            color = [UIColor colorWithCss:@(0x111111) alpha:0.8];
+        }
+    }
+    
     return color;
 }
 
 -(void)setcolorType
 {
+    if (self.colorType == JLProgressHUDNormalColorTypeColor)
+    {
+        return;
+    }
+    
     if (self.styleType == JLProgressHUDStyleTypeWhite)
     {
         self.colorType = JLProgressHUDNormalColorTypeBlack;

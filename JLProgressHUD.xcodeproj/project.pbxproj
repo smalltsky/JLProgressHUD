@@ -11,17 +11,17 @@
 		0D9433DF1FF5C37F0024D288 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9433DE1FF5C37F0024D288 /* ViewController.m */; };
 		0D9433E21FF5C37F0024D288 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D9433E01FF5C37F0024D288 /* Main.storyboard */; };
 		0D9433E41FF5C37F0024D288 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D9433E31FF5C37F0024D288 /* Assets.xcassets */; };
+		0D9433E71FF5C37F0024D288 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D9433E51FF5C37F0024D288 /* LaunchScreen.storyboard */; };
 		0D9433EA1FF5C37F0024D288 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9433E91FF5C37F0024D288 /* main.m */; };
 		0D9433F41FF5C37F0024D288 /* JLProgressHUDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9433F31FF5C37F0024D288 /* JLProgressHUDTests.m */; };
 		0D9433FF1FF5C37F0024D288 /* JLProgressHUDUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9433FE1FF5C37F0024D288 /* JLProgressHUDUITests.m */; };
-		0D9434161FF5C3AF0024D288 /* JLProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9434101FF5C3AF0024D288 /* JLProgressHUD.m */; };
-		0D9434181FF5C3AF0024D288 /* UIColor+css.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9434141FF5C3AF0024D288 /* UIColor+css.m */; };
-		0D94342B1FF622E50024D288 /* JLLoadingAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D94342A1FF622E50024D288 /* JLLoadingAnimatedView.m */; };
-		0D94342E1FF63B370024D288 /* NSObject+CGSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D94342C1FF63B370024D288 /* NSObject+CGSize.m */; };
-		0D9434311FFB13180024D288 /* UIApplication+auxiliary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9434301FFB13170024D288 /* UIApplication+auxiliary.m */; };
-		0D9434341FFB4FB20024D288 /* JLProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9434331FFB4FB20024D288 /* JLProgressAnimatedView.m */; };
-		0D9434381FFC6FA80024D288 /* JLProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0D9434371FFC6FA80024D288 /* JLProgressHUD.bundle */; };
-		72AD2B036771D4BBD70B0E75 /* libPods-JLProgressHUD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94CEA55FC538A764C1DA4FD8 /* libPods-JLProgressHUD.a */; };
+		0D94344A1FFCB3870024D288 /* JLLoadingAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D94343E1FFCB3870024D288 /* JLLoadingAnimatedView.m */; };
+		0D94344B1FFCB3870024D288 /* JLProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9434401FFCB3870024D288 /* JLProgressAnimatedView.m */; };
+		0D94344C1FFCB3870024D288 /* JLProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0D9434411FFCB3870024D288 /* JLProgressHUD.bundle */; };
+		0D94344D1FFCB3870024D288 /* JLProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9434431FFCB3870024D288 /* JLProgressHUD.m */; };
+		0D94344E1FFCB3870024D288 /* NSObject+CGSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9434451FFCB3870024D288 /* NSObject+CGSize.m */; };
+		0D94344F1FFCB3870024D288 /* UIApplication+auxiliary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9434471FFCB3870024D288 /* UIApplication+auxiliary.m */; };
+		0D9434501FFCB3870024D288 /* UIColor+css.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9434491FFCB3870024D288 /* UIColor+css.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +49,7 @@
 		0D9433DE1FF5C37F0024D288 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0D9433E11FF5C37F0024D288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0D9433E31FF5C37F0024D288 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0D9433E61FF5C37F0024D288 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0D9433E81FF5C37F0024D288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D9433E91FF5C37F0024D288 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0D9433EF1FF5C37F0024D288 /* JLProgressHUDTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JLProgressHUDTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,22 +58,19 @@
 		0D9433FA1FF5C37F0024D288 /* JLProgressHUDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JLProgressHUDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D9433FE1FF5C37F0024D288 /* JLProgressHUDUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLProgressHUDUITests.m; sourceTree = "<group>"; };
 		0D9434001FF5C37F0024D288 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0D94340F1FF5C3AF0024D288 /* JLProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLProgressHUD.h; sourceTree = "<group>"; };
-		0D9434101FF5C3AF0024D288 /* JLProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLProgressHUD.m; sourceTree = "<group>"; };
-		0D9434131FF5C3AF0024D288 /* UIColor+css.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+css.h"; sourceTree = "<group>"; };
-		0D9434141FF5C3AF0024D288 /* UIColor+css.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+css.m"; sourceTree = "<group>"; };
-		0D9434291FF622E50024D288 /* JLLoadingAnimatedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLLoadingAnimatedView.h; sourceTree = "<group>"; };
-		0D94342A1FF622E50024D288 /* JLLoadingAnimatedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLLoadingAnimatedView.m; sourceTree = "<group>"; };
-		0D94342C1FF63B370024D288 /* NSObject+CGSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CGSize.m"; sourceTree = "<group>"; };
-		0D94342D1FF63B370024D288 /* NSObject+CGSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CGSize.h"; sourceTree = "<group>"; };
-		0D94342F1FFB13170024D288 /* UIApplication+auxiliary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+auxiliary.h"; sourceTree = "<group>"; };
-		0D9434301FFB13170024D288 /* UIApplication+auxiliary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+auxiliary.m"; sourceTree = "<group>"; };
-		0D9434321FFB4FB20024D288 /* JLProgressAnimatedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLProgressAnimatedView.h; sourceTree = "<group>"; };
-		0D9434331FFB4FB20024D288 /* JLProgressAnimatedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLProgressAnimatedView.m; sourceTree = "<group>"; };
-		0D9434371FFC6FA80024D288 /* JLProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JLProgressHUD.bundle; sourceTree = "<group>"; };
-		94CEA55FC538A764C1DA4FD8 /* libPods-JLProgressHUD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-JLProgressHUD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE9F32117C19956BC3AF1A50 /* Pods-JLProgressHUD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLProgressHUD.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JLProgressHUD/Pods-JLProgressHUD.debug.xcconfig"; sourceTree = "<group>"; };
-		C22CFE830F7C20FFDEA3BAF8 /* Pods-JLProgressHUD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLProgressHUD.release.xcconfig"; path = "Pods/Target Support Files/Pods-JLProgressHUD/Pods-JLProgressHUD.release.xcconfig"; sourceTree = "<group>"; };
+		0D94343D1FFCB3870024D288 /* JLLoadingAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLLoadingAnimatedView.h; sourceTree = "<group>"; };
+		0D94343E1FFCB3870024D288 /* JLLoadingAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLLoadingAnimatedView.m; sourceTree = "<group>"; };
+		0D94343F1FFCB3870024D288 /* JLProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLProgressAnimatedView.h; sourceTree = "<group>"; };
+		0D9434401FFCB3870024D288 /* JLProgressAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLProgressAnimatedView.m; sourceTree = "<group>"; };
+		0D9434411FFCB3870024D288 /* JLProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = JLProgressHUD.bundle; sourceTree = "<group>"; };
+		0D9434421FFCB3870024D288 /* JLProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLProgressHUD.h; sourceTree = "<group>"; };
+		0D9434431FFCB3870024D288 /* JLProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLProgressHUD.m; sourceTree = "<group>"; };
+		0D9434441FFCB3870024D288 /* NSObject+CGSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CGSize.h"; sourceTree = "<group>"; };
+		0D9434451FFCB3870024D288 /* NSObject+CGSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CGSize.m"; sourceTree = "<group>"; };
+		0D9434461FFCB3870024D288 /* UIApplication+auxiliary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+auxiliary.h"; sourceTree = "<group>"; };
+		0D9434471FFCB3870024D288 /* UIApplication+auxiliary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+auxiliary.m"; sourceTree = "<group>"; };
+		0D9434481FFCB3870024D288 /* UIColor+css.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+css.h"; sourceTree = "<group>"; };
+		0D9434491FFCB3870024D288 /* UIColor+css.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+css.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +78,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72AD2B036771D4BBD70B0E75 /* libPods-JLProgressHUD.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,8 +105,6 @@
 				0D9433F21FF5C37F0024D288 /* JLProgressHUDTests */,
 				0D9433FD1FF5C37F0024D288 /* JLProgressHUDUITests */,
 				0D9433D81FF5C37F0024D288 /* Products */,
-				14A83E2F6AE60E0615E4F4EE /* Pods */,
-				3C4A6CD2770E25AB276562BF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,13 +121,14 @@
 		0D9433D91FF5C37F0024D288 /* JLProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				0D94340C1FF5C3AF0024D288 /* JLProgressHUD */,
+				0D94343C1FFCB3870024D288 /* JLProgressHUD */,
 				0D9433DA1FF5C37F0024D288 /* AppDelegate.h */,
 				0D9433DB1FF5C37F0024D288 /* AppDelegate.m */,
 				0D9433DD1FF5C37F0024D288 /* ViewController.h */,
 				0D9433DE1FF5C37F0024D288 /* ViewController.m */,
 				0D9433E01FF5C37F0024D288 /* Main.storyboard */,
 				0D9433E31FF5C37F0024D288 /* Assets.xcassets */,
+				0D9433E51FF5C37F0024D288 /* LaunchScreen.storyboard */,
 				0D9433E81FF5C37F0024D288 /* Info.plist */,
 				0D9433E91FF5C37F0024D288 /* main.m */,
 			);
@@ -157,41 +153,24 @@
 			path = JLProgressHUDUITests;
 			sourceTree = "<group>";
 		};
-		0D94340C1FF5C3AF0024D288 /* JLProgressHUD */ = {
+		0D94343C1FFCB3870024D288 /* JLProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
-				0D9434371FFC6FA80024D288 /* JLProgressHUD.bundle */,
-				0D9434291FF622E50024D288 /* JLLoadingAnimatedView.h */,
-				0D94342A1FF622E50024D288 /* JLLoadingAnimatedView.m */,
-				0D9434321FFB4FB20024D288 /* JLProgressAnimatedView.h */,
-				0D9434331FFB4FB20024D288 /* JLProgressAnimatedView.m */,
-				0D94340F1FF5C3AF0024D288 /* JLProgressHUD.h */,
-				0D9434101FF5C3AF0024D288 /* JLProgressHUD.m */,
-				0D9434131FF5C3AF0024D288 /* UIColor+css.h */,
-				0D9434141FF5C3AF0024D288 /* UIColor+css.m */,
-				0D94342D1FF63B370024D288 /* NSObject+CGSize.h */,
-				0D94342C1FF63B370024D288 /* NSObject+CGSize.m */,
-				0D94342F1FFB13170024D288 /* UIApplication+auxiliary.h */,
-				0D9434301FFB13170024D288 /* UIApplication+auxiliary.m */,
+				0D94343D1FFCB3870024D288 /* JLLoadingAnimatedView.h */,
+				0D94343E1FFCB3870024D288 /* JLLoadingAnimatedView.m */,
+				0D94343F1FFCB3870024D288 /* JLProgressAnimatedView.h */,
+				0D9434401FFCB3870024D288 /* JLProgressAnimatedView.m */,
+				0D9434411FFCB3870024D288 /* JLProgressHUD.bundle */,
+				0D9434421FFCB3870024D288 /* JLProgressHUD.h */,
+				0D9434431FFCB3870024D288 /* JLProgressHUD.m */,
+				0D9434441FFCB3870024D288 /* NSObject+CGSize.h */,
+				0D9434451FFCB3870024D288 /* NSObject+CGSize.m */,
+				0D9434461FFCB3870024D288 /* UIApplication+auxiliary.h */,
+				0D9434471FFCB3870024D288 /* UIApplication+auxiliary.m */,
+				0D9434481FFCB3870024D288 /* UIColor+css.h */,
+				0D9434491FFCB3870024D288 /* UIColor+css.m */,
 			);
 			path = JLProgressHUD;
-			sourceTree = "<group>";
-		};
-		14A83E2F6AE60E0615E4F4EE /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AE9F32117C19956BC3AF1A50 /* Pods-JLProgressHUD.debug.xcconfig */,
-				C22CFE830F7C20FFDEA3BAF8 /* Pods-JLProgressHUD.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		3C4A6CD2770E25AB276562BF /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				94CEA55FC538A764C1DA4FD8 /* libPods-JLProgressHUD.a */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,12 +180,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0D9434031FF5C37F0024D288 /* Build configuration list for PBXNativeTarget "JLProgressHUD" */;
 			buildPhases = (
-				A67461CABCFF8296DF014A26 /* [CP] Check Pods Manifest.lock */,
 				0D9433D31FF5C37F0024D288 /* Sources */,
 				0D9433D41FF5C37F0024D288 /* Frameworks */,
 				0D9433D51FF5C37F0024D288 /* Resources */,
-				53DB726DFEB41ACACF60BC24 /* [CP] Embed Pods Frameworks */,
-				D595EB33E7CB7F1FDA551D20 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -303,9 +279,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D94344C1FFCB3870024D288 /* JLProgressHUD.bundle in Resources */,
+				0D9433E71FF5C37F0024D288 /* LaunchScreen.storyboard in Resources */,
 				0D9433E41FF5C37F0024D288 /* Assets.xcassets in Resources */,
 				0D9433E21FF5C37F0024D288 /* Main.storyboard in Resources */,
-				0D9434381FFC6FA80024D288 /* JLProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,73 +302,19 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		53DB726DFEB41ACACF60BC24 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JLProgressHUD/Pods-JLProgressHUD-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A67461CABCFF8296DF014A26 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-JLProgressHUD-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D595EB33E7CB7F1FDA551D20 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-JLProgressHUD/Pods-JLProgressHUD-resources.sh",
-				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JLProgressHUD/Pods-JLProgressHUD-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		0D9433D31FF5C37F0024D288 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D94344A1FFCB3870024D288 /* JLLoadingAnimatedView.m in Sources */,
+				0D9434501FFCB3870024D288 /* UIColor+css.m in Sources */,
+				0D94344F1FFCB3870024D288 /* UIApplication+auxiliary.m in Sources */,
 				0D9433DF1FF5C37F0024D288 /* ViewController.m in Sources */,
-				0D9434311FFB13180024D288 /* UIApplication+auxiliary.m in Sources */,
-				0D9434181FF5C3AF0024D288 /* UIColor+css.m in Sources */,
-				0D9434161FF5C3AF0024D288 /* JLProgressHUD.m in Sources */,
-				0D9434341FFB4FB20024D288 /* JLProgressAnimatedView.m in Sources */,
-				0D94342E1FF63B370024D288 /* NSObject+CGSize.m in Sources */,
-				0D94342B1FF622E50024D288 /* JLLoadingAnimatedView.m in Sources */,
+				0D94344D1FFCB3870024D288 /* JLProgressHUD.m in Sources */,
+				0D94344E1FFCB3870024D288 /* NSObject+CGSize.m in Sources */,
 				0D9433EA1FF5C37F0024D288 /* main.m in Sources */,
+				0D94344B1FFCB3870024D288 /* JLProgressAnimatedView.m in Sources */,
 				0D9433DC1FF5C37F0024D288 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +357,14 @@
 				0D9433E11FF5C37F0024D288 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0D9433E51FF5C37F0024D288 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0D9433E61FF5C37F0024D288 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -487,7 +418,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -536,7 +467,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -545,35 +476,29 @@
 		};
 		0D9434041FF5C37F0024D288 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE9F32117C19956BC3AF1A50 /* Pods-JLProgressHUD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SKTQB76FY;
 				INFOPLIST_FILE = JLProgressHUD/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liuqitian.JLProgressHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		0D9434051FF5C37F0024D288 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C22CFE830F7C20FFDEA3BAF8 /* Pods-JLProgressHUD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2SKTQB76FY;
 				INFOPLIST_FILE = JLProgressHUD/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liuqitian.JLProgressHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
