@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name         = "JLProgressHUD"
-s.version      = "0.88"
+s.version      = "0.9"
 s.summary      = "JLProgressHUD Based on the secondary packaging SVProgressHUD, added many color chrysanthemum, can customize the color chrysanthemum."
 s.homepage     = "https://github.com/smalltsky/JLProgressHUD"
 s.license      = { :type => "MIT", :file => "LICENSE" }
@@ -13,6 +13,5 @@ s.source       = { :git => "https://github.com/smalltsky/JLProgressHUD.git", :ta
 s.source_files = "JLProgressHUD/JLProgressHUD/*.{h,m}"
 s.resource     = "JLProgressHUD/JLProgressHUD/*.bundle"
 s.requires_arc = true
-#s.dependency 'SVProgressHUD'
 
 end
