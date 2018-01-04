@@ -12,6 +12,7 @@ JLProgressHUD添加了多颜色菊花，可以自定义菊花颜色 只可以在
 ## Demo		
 
 Try  'JLProgressHUD' on [JLProgressHUD.zip](https://github.com/smalltsky/JLProgressHUD/archive/master.zip)
+
 下载 'JLProgressHUD' 请点击 [JLProgressHUD.zip](https://github.com/smalltsky/JLProgressHUD/archive/master.zip)
 
 ## Installation
