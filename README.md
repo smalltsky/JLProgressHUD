@@ -76,3 +76,13 @@ pod 'JLProgressHUD'
 - (void)dismissWithDelay:(NSTimeInterval)delay;
 ```
 
+### custom method
+
+```objective-c
+JLProgressHUD *progress = [JLProgressHUD sharedView];
+[progress setStandardWidthType:JLProgressHUDStandardWidthTypeSmall];
+[progress setColorType:JLProgressHUDNormalColorTypeColor];
+[progress setStyleType:JLProgressHUDStyleTypeBlack];
+[progress showProgress:JLProgressHUDTypeNormal status:@"加载中..." colors:nil Progress:nil image:nil];
+```
+
