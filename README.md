@@ -6,8 +6,15 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 
-
+JLProgressHUD added more color chrysanthemum, can be custom color chrysanthemum Only can be used on the iOS
 JLProgressHUD添加了多颜色菊花，可以自定义菊花颜色 只可以在iOS上使用
+
+## Demo		
+
+Try  'JLProgressHUD' on [JLProgressHUD.zip](https://github.com/smalltsky/JLProgressHUD/archive/master.zip)
+下载 'JLProgressHUD' 请点击 [JLProgressHUD.zip](https://github.com/smalltsky/JLProgressHUD/archive/master.zip)
+
+## Installation
 
 ## JLProgressHUD.h
 
