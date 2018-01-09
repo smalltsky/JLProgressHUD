@@ -22,6 +22,10 @@
 		0D94344E1FFCB3870024D288 /* NSObject+CGSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9434451FFCB3870024D288 /* NSObject+CGSize.m */; };
 		0D94344F1FFCB3870024D288 /* UIApplication+auxiliary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9434471FFCB3870024D288 /* UIApplication+auxiliary.m */; };
 		0D9434501FFCB3870024D288 /* UIColor+css.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9434491FFCB3870024D288 /* UIColor+css.m */; };
+		0D9434631FFF13C90024D288 /* UIImage+gif.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9434621FFF13C90024D288 /* UIImage+gif.m */; };
+		0D9434661FFF17390024D288 /* JLGifAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D9434651FFF17390024D288 /* JLGifAnimatedView.m */; };
+		0D94346A1FFF28950024D288 /* ajax-loader.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0D9434691FFF28950024D288 /* ajax-loader.gif */; };
+		0D9434701FFF53AA0024D288 /* JLAcvitityIndicatorAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D94346F1FFF53AA0024D288 /* JLAcvitityIndicatorAnimatedView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +75,13 @@
 		0D9434471FFCB3870024D288 /* UIApplication+auxiliary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+auxiliary.m"; sourceTree = "<group>"; };
 		0D9434481FFCB3870024D288 /* UIColor+css.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+css.h"; sourceTree = "<group>"; };
 		0D9434491FFCB3870024D288 /* UIColor+css.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+css.m"; sourceTree = "<group>"; };
+		0D9434611FFF13C90024D288 /* UIImage+gif.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+gif.h"; sourceTree = "<group>"; };
+		0D9434621FFF13C90024D288 /* UIImage+gif.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+gif.m"; sourceTree = "<group>"; };
+		0D9434641FFF17390024D288 /* JLGifAnimatedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLGifAnimatedView.h; sourceTree = "<group>"; };
+		0D9434651FFF17390024D288 /* JLGifAnimatedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLGifAnimatedView.m; sourceTree = "<group>"; };
+		0D9434691FFF28950024D288 /* ajax-loader.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "ajax-loader.gif"; sourceTree = "<group>"; };
+		0D94346E1FFF53AA0024D288 /* JLAcvitityIndicatorAnimatedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLAcvitityIndicatorAnimatedView.h; sourceTree = "<group>"; };
+		0D94346F1FFF53AA0024D288 /* JLAcvitityIndicatorAnimatedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLAcvitityIndicatorAnimatedView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,10 +167,15 @@
 		0D94343C1FFCB3870024D288 /* JLProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
+				0D9434691FFF28950024D288 /* ajax-loader.gif */,
+				0D94346E1FFF53AA0024D288 /* JLAcvitityIndicatorAnimatedView.h */,
+				0D94346F1FFF53AA0024D288 /* JLAcvitityIndicatorAnimatedView.m */,
 				0D94343D1FFCB3870024D288 /* JLLoadingAnimatedView.h */,
 				0D94343E1FFCB3870024D288 /* JLLoadingAnimatedView.m */,
 				0D94343F1FFCB3870024D288 /* JLProgressAnimatedView.h */,
 				0D9434401FFCB3870024D288 /* JLProgressAnimatedView.m */,
+				0D9434641FFF17390024D288 /* JLGifAnimatedView.h */,
+				0D9434651FFF17390024D288 /* JLGifAnimatedView.m */,
 				0D9434411FFCB3870024D288 /* JLProgressHUD.bundle */,
 				0D9434421FFCB3870024D288 /* JLProgressHUD.h */,
 				0D9434431FFCB3870024D288 /* JLProgressHUD.m */,
@@ -169,6 +185,8 @@
 				0D9434471FFCB3870024D288 /* UIApplication+auxiliary.m */,
 				0D9434481FFCB3870024D288 /* UIColor+css.h */,
 				0D9434491FFCB3870024D288 /* UIColor+css.m */,
+				0D9434611FFF13C90024D288 /* UIImage+gif.h */,
+				0D9434621FFF13C90024D288 /* UIImage+gif.m */,
 			);
 			path = JLProgressHUD;
 			sourceTree = "<group>";
@@ -280,6 +298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D94344C1FFCB3870024D288 /* JLProgressHUD.bundle in Resources */,
+				0D94346A1FFF28950024D288 /* ajax-loader.gif in Resources */,
 				0D9433E71FF5C37F0024D288 /* LaunchScreen.storyboard in Resources */,
 				0D9433E41FF5C37F0024D288 /* Assets.xcassets in Resources */,
 				0D9433E21FF5C37F0024D288 /* Main.storyboard in Resources */,
@@ -310,9 +329,12 @@
 				0D94344A1FFCB3870024D288 /* JLLoadingAnimatedView.m in Sources */,
 				0D9434501FFCB3870024D288 /* UIColor+css.m in Sources */,
 				0D94344F1FFCB3870024D288 /* UIApplication+auxiliary.m in Sources */,
+				0D9434701FFF53AA0024D288 /* JLAcvitityIndicatorAnimatedView.m in Sources */,
 				0D9433DF1FF5C37F0024D288 /* ViewController.m in Sources */,
 				0D94344D1FFCB3870024D288 /* JLProgressHUD.m in Sources */,
 				0D94344E1FFCB3870024D288 /* NSObject+CGSize.m in Sources */,
+				0D9434631FFF13C90024D288 /* UIImage+gif.m in Sources */,
+				0D9434661FFF17390024D288 /* JLGifAnimatedView.m in Sources */,
 				0D9433EA1FF5C37F0024D288 /* main.m in Sources */,
 				0D94344B1FFCB3870024D288 /* JLProgressAnimatedView.m in Sources */,
 				0D9433DC1FF5C37F0024D288 /* AppDelegate.m in Sources */,

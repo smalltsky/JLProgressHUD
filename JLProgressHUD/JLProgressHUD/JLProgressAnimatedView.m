@@ -9,108 +9,124 @@
 #import "JLProgressAnimatedView.h"
 
 @interface JLProgressAnimatedView()
+{
+    CGFloat _padding;
+}
 
-@property (nonatomic, strong) CAShapeLayer *ringAnimatedLayer;
+@property (strong,nonatomic) CAShapeLayer * backgroundLayer;
+
+@property (strong,nonatomic) CAShapeLayer * progressLayer;
+
+@property (strong,nonatomic,readwrite) UILabel * progressLabel;
+
+@property (nonatomic,assign) JLProgressAnimatedViewType animatedType;
 
 @end
 
 @implementation JLProgressAnimatedView
 
-- (void)willMoveToSuperview:(UIView *)newSuperview
+-(void)transactionUpdate:(void(^)(void))block
 {
-    if (newSuperview)
-    {
-        [self layoutAnimatedLayer];
-    }
-    else
-    {
-        [_ringAnimatedLayer removeFromSuperlayer];
-        _ringAnimatedLayer = nil;
-    }
+    [CATransaction begin];
+    [CATransaction setValue:(id)kCFBooleanTrue
+                     forKey:kCATransactionDisableActions];
+    block();
+    [CATransaction commit];
 }
 
-- (void)layoutAnimatedLayer
+-(void)setProgress:(CGFloat)progress
 {
-    CALayer *layer = self.ringAnimatedLayer;
-    [self.layer addSublayer:layer];
+    _progress = progress;
+    _progress = MAX(0.0, _progress);
+    _progress = MIN(1.0, _progress);
     
-    CGFloat widthDiff = CGRectGetWidth(self.bounds) - CGRectGetWidth(layer.bounds);
-    CGFloat heightDiff = CGRectGetHeight(self.bounds) - CGRectGetHeight(layer.bounds);
-    layer.position = CGPointMake(CGRectGetWidth(self.bounds) - CGRectGetWidth(layer.bounds) / 2 - widthDiff / 2, CGRectGetHeight(self.bounds) - CGRectGetHeight(layer.bounds) / 2 - heightDiff / 2);
+    [self transactionUpdate:^
+    {
+        self.progressLayer.strokeEnd = progress;
+    }];
+    
+    self.progressLabel.text = [NSString stringWithFormat:@"%.2f%%",_progress * 100];
 }
 
-- (CAShapeLayer *)ringAnimatedLayer
+-(CGSize)intrinsicContentSize
 {
-    if(!_ringAnimatedLayer)
+    CGFloat wh = 0.0;
+    
+    if (_animatedType == JLProgressAnimatedViewTypeNormal)
     {
-        CGPoint arcCenter = CGPointMake(self.radius+self.strokeThickness/2+5, self.radius+self.strokeThickness/2+5);
-        UIBezierPath* smoothedPath = [UIBezierPath bezierPathWithArcCenter:arcCenter radius:self.radius startAngle:(CGFloat)-M_PI_2 endAngle:(CGFloat) (M_PI + M_PI_2) clockwise:YES];
-        
-        _ringAnimatedLayer = [CAShapeLayer layer];
-        _ringAnimatedLayer.contentsScale = [[UIScreen mainScreen] scale];
-        _ringAnimatedLayer.frame = CGRectMake(0.0f, 0.0f, arcCenter.x*2, arcCenter.y*2);
-        _ringAnimatedLayer.fillColor = [UIColor clearColor].CGColor;
-        _ringAnimatedLayer.strokeColor = self.strokeColor.CGColor;
-        _ringAnimatedLayer.lineWidth = self.strokeThickness;
-        _ringAnimatedLayer.lineCap = kCALineCapRound;
-        _ringAnimatedLayer.lineJoin = kCALineJoinBevel;
-        _ringAnimatedLayer.path = smoothedPath.CGPath;
+        wh = 60.0;
     }
     
-    return _ringAnimatedLayer;
-}
-
-- (void)setFrame:(CGRect)frame
-{
-    if(!CGRectEqualToRect(frame, super.frame))
+    if (_animatedType == JLProgressAnimatedViewTypeSmall)
     {
-        [super setFrame:frame];
-        
-        if(self.superview)
-        {
-            [self layoutAnimatedLayer];
-        }
+        wh = 40.0;
     }
+    
+    return CGSizeMake(wh, wh);
 }
 
-- (void)setRadius:(CGFloat)radius
+-(instancetype)initWithType:(JLProgressAnimatedViewType)type
 {
-    if(radius != _radius)
+    CGFloat wh = 0.0;
+    
+    if (type == JLProgressAnimatedViewTypeNormal)
     {
-        _radius = radius;
-        
-        [_ringAnimatedLayer removeFromSuperlayer];
-        _ringAnimatedLayer = nil;
-        
-        if(self.superview)
-        {
-            [self layoutAnimatedLayer];
-        }
+        wh = 60.0;
     }
+    
+    if (type == JLProgressAnimatedViewTypeSmall)
+    {
+        wh = 40.0;
+    }
+    
+    if (self = [super initWithFrame:CGRectMake(0,0,wh,wh)])
+    {
+        _padding = 6.0;
+        _backgroundLayer = [CAShapeLayer layer];
+        _animatedType = type;
+        CGFloat width = self.bounds.size.width;
+        CGFloat height = self.bounds.size.height;
+        CGPoint center = CGPointMake(width/2, height/2);
+        CGFloat min = MIN(width, height);
+        CGFloat radius = min/2 - _padding;
+        
+        UIBezierPath * bezierPath = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:-M_PI/2 endAngle:M_PI * 2 - M_PI/2 clockwise:YES];
+        UIBezierPath * bz2 = [UIBezierPath bezierPathWithArcCenter:center radius:radius startAngle:-M_PI/2 endAngle:M_PI * 2 - M_PI/2 clockwise:YES];
+        
+        _backgroundLayer.path = bezierPath.CGPath;
+        _backgroundLayer.strokeStart = 0.00;
+        _backgroundLayer.strokeEnd = 1.0;
+        _backgroundLayer.lineCap = kCALineCapRound;
+        _backgroundLayer.lineWidth = 3.0;
+        _backgroundLayer.strokeColor = [UIColor lightGrayColor].CGColor;
+        _backgroundLayer.fillColor = [UIColor clearColor].CGColor;
+        _backgroundLayer.anchorPoint = CGPointMake(0.5, 0.5);
+        _backgroundLayer.position = center;
+        _backgroundLayer.bounds = self.bounds;
+        [self.layer addSublayer:_backgroundLayer];
+        
+        _progressLayer = [CAShapeLayer layer];
+        _progressLayer.path = bz2.CGPath;
+        _progressLayer.strokeStart = 0.00;
+        _progressLayer.strokeEnd = 0.00;
+        _progressLayer.lineCap = kCALineCapRound;
+        _progressLayer.lineWidth = 3.0;
+        _progressLayer.strokeColor = [UIColor blueColor].CGColor;
+        _progressLayer.fillColor = [UIColor clearColor].CGColor;
+        _progressLayer.anchorPoint = CGPointMake(0.5, 0.5);
+        _progressLayer.position = center;
+        _progressLayer.bounds = self.bounds;
+        [self.layer addSublayer:_progressLayer];
+        
+        self.progressLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 20)];
+        self.progressLabel.textColor = [UIColor whiteColor];
+        self.progressLabel.font = [UIFont boldSystemFontOfSize:10];
+        self.progressLabel.center = center;
+        self.progressLabel.textAlignment = NSTextAlignmentCenter;
+        [self addSubview:self.progressLabel];
+    }
+    
+    return self;
 }
-
-- (void)setStrokeColor:(UIColor *)strokeColor
-{
-    _strokeColor = strokeColor;
-    _ringAnimatedLayer.strokeColor = strokeColor.CGColor;
-}
-
-- (void)setStrokeThickness:(CGFloat)strokeThickness
-{
-    _strokeThickness = strokeThickness;
-    _ringAnimatedLayer.lineWidth = _strokeThickness;
-}
-
-- (void)setStrokeEnd:(CGFloat)strokeEnd
-{
-    _strokeEnd = strokeEnd;
-    _ringAnimatedLayer.strokeEnd = _strokeEnd;
-}
-
-- (CGSize)sizeThatFits:(CGSize)size
-{
-    return CGSizeMake((self.radius+self.strokeThickness/2+5)*2, (self.radius+self.strokeThickness/2+5)*2);
-}
-
 
 @end

@@ -1,5 +1,5 @@
 //
-//  UIColor+css.h
+//  UIImage+gif.h
 //  JLProgressHUD
 //
 //  Created by smalltsky on 2017/12/9.
@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIColor (css)
+@interface UIImage (gif)
 
-+ (UIColor *)colorWithCss:(NSNumber *)css;
++ (UIImage *)imageWithGifNamed:(NSString *)name;
 
-+ (UIColor *)colorWithCss:(NSNumber *)css alpha:(CGFloat)alpha;
++ (UIImage *)imageWithGifData:(NSData *)data;
 
 @end

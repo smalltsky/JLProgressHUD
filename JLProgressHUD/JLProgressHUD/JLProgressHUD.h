@@ -19,6 +19,17 @@ typedef NS_ENUM(NSInteger,JLProgressHUDType)
     JLProgressHUDTypeNormal = 1 << 0,
     JLProgressHUDTypeProgress = 1 << 1,
     JLProgressHUDTypeImage = 1 << 2,
+    JLProgressHUDTypeGifImage = 1 << 3,
+    JLProgressHUDTypeAnimation = 1 << 4,
+};
+
+typedef  NS_ENUM(NSInteger,JLProgressHUDAnimationType)
+{
+    JLProgressHUDAnimationTypeNormal = 1 << 0,
+    JLProgressHUDAnimationTypeSuccess = 1 << 1,
+    JLProgressHUDAnimationTypeFailure = 1 << 2,
+    JLProgressHUDAnimationTypeInfo = 1 << 3,
+    
 };
 
 typedef NS_ENUM(NSInteger,JLProgressHUDNormalColorType)
@@ -36,23 +47,27 @@ typedef NS_ENUM(NSInteger,JLProgressHUDStyleType)
 
 @interface JLProgressHUD : UIView
 
-//默认 为黑色
-@property (nonatomic,assign) JLProgressHUDNormalColorType colorType;
-//默认 为白色
-@property (nonatomic,assign) JLProgressHUDStyleType styleType;
-//默认 JLProgressHUDStandardWidthTypeNormal
-@property (nonatomic,assign) JLProgressHUDStandardWidthType standardWidthType;
-//默认 为14.0
-@property (nonatomic,strong) UIFont *statusFont;
-//默认 为灰色 只有JLProgressHUDType类型为JLProgressHUDTypeProgress时有用
-@property (nonatomic,strong) UIColor *allProgressColor;
-//默认 为红色 只有JLProgressHUDType类型为JLProgressHUDTypeProgress时有用
-@property (nonatomic,strong) UIColor *noAllProgressColor;
-
-//默认 为27x27
-@property (nonatomic,assign) CGSize imageViewSize UI_APPEARANCE_SELECTOR;
-
 + (JLProgressHUD *)sharedView;
+
+-(void)setColorType:(JLProgressHUDNormalColorType)colorType;
+
+-(void)setStyleType:(JLProgressHUDStyleType)styleType;
+
+-(void)setStandardWidthType:(JLProgressHUDStandardWidthType)standardWidthType;
+
+-(void)setStatusFont:(UIFont *)statusFont;
+
+-(void)setAllProgressColor:(UIColor *)allProgressColor;
+-(void)setNoAllProgressColor:(UIColor *)noAllProgressColor;
+
+-(void)setImageViewSize:(CGSize)imageViewSize;
+
+-(void)setOffSetY:(CGFloat)offSetY;
+
+-(void)setAnimationInfoColor:(UIColor *)animationInfoColor;
+-(void)setAnimationSpinnerColor:(UIColor *)animationSpinnerColor;
+
+-(void)setColors:(NSArray *)colors;
 
 + (void)showWithStatus:(NSString*)status;
 
@@ -60,12 +75,19 @@ typedef NS_ENUM(NSInteger,JLProgressHUDStyleType)
 + (void)showSuccessWithStatus:(NSString *)status;
 + (void)showFailureWithStatus:(NSString *)status;
 
++ (void)showAnimationWithStatus:(NSString*)status;
+
++ (void)showAnimationInfoWithStatus:(NSString *)status animated:(BOOL)animated;
++ (void)showAnimationSuccessWithStatus:(NSString *)status animated:(BOOL)animated;
++ (void)showAnimationFailureWithStatus:(NSString *)status animated:(BOOL)animated;
+
 + (void)showWithImage:(UIImage *)image Status:(NSString *)status;
++ (void)showWithGifImageName:(NSString *)name Status:(NSString *)status;
 + (void)showWithProgress:(NSNumber *)progress Status:(NSString *)status;
 
-+ (void)showProgress:(JLProgressHUDType)type status:(NSString *)status colors:(NSArray *)colors Progress:(NSNumber *)progress image:(UIImage *)image;
++ (void)showProgress:(JLProgressHUDType)type status:(NSString *)status Progress:(NSNumber *)progress image:(UIImage *)image;
 
-- (void)showProgress:(JLProgressHUDType)type status:(NSString *)status colors:(NSArray *)colors Progress:(NSNumber *)progress image:(UIImage *)image;
+- (void)showProgress:(JLProgressHUDType)type status:(NSString *)status Progress:(NSNumber *)progress image:(UIImage *)image;
 
 + (void)dismiss;
 + (void)dismissWithDelay:(NSTimeInterval)delay;

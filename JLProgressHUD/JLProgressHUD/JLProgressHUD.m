@@ -12,8 +12,36 @@
 #import "UIApplication+auxiliary.h"
 #import "UIColor+css.h"
 #import "JLProgressAnimatedView.h"
+#import "JLGifAnimatedView.h"
+#import "JLAcvitityIndicatorAnimatedView.h"
 
 @interface JLProgressHUD()
+
+//默认 为黑色
+@property (nonatomic,assign) JLProgressHUDNormalColorType colorType;
+//默认 为白色
+@property (nonatomic,assign) JLProgressHUDStyleType styleType;
+//默认 JLProgressHUDStandardWidthTypeNormal
+@property (nonatomic,assign) JLProgressHUDStandardWidthType standardWidthType;
+//默认 为14.0
+@property (nonatomic,strong) UIFont *statusFont;
+//默认 为灰色 只有JLProgressHUDType类型为JLProgressHUDTypeProgress时有用
+@property (nonatomic,strong) UIColor *allProgressColor;
+//默认 为红色 只有JLProgressHUDType类型为JLProgressHUDTypeProgress时有用
+@property (nonatomic,strong) UIColor *noAllProgressColor;
+
+//默认 为27x27
+@property (nonatomic,assign) CGSize imageViewSize;
+
+//默认 为10.0
+@property (nonatomic,assign) CGFloat offSetY;
+
+//默认 为白色 只有JLProgressHUDType类型为JLProgressHUDTypeAnimation时有用
+@property (nonatomic,strong) UIColor *animationSpinnerColor;
+//默认 为白色 只有JLProgressHUDType类型为JLProgressHUDTypeAnimation时有用
+@property (nonatomic,strong) UIColor *animationInfoColor;
+//JLProgressHUDNormalColorTypeColor时 默认红和蓝
+@property (nonatomic,strong) NSArray *colors;
 
 @property (nonatomic,strong) UIView *backgroundView;
 
@@ -27,11 +55,21 @@
 
 @property (nonatomic,strong) JLProgressAnimatedView *ringView;
 
-@property (nonatomic,strong) JLProgressAnimatedView *backgroundRingView;
+@property (nonatomic,strong) JLGifAnimatedView *gifAnimatedView;
+
+@property (nonatomic,strong) JLAcvitityIndicatorAnimatedView *animatedView;
+
+@property (nonatomic,assign) JLProgressHUDAnimationType animationType;
+
+@property (nonatomic,assign) JLProgressHUDType HUDType;
+
+@property (nonatomic,assign) BOOL animation;
 
 @property (nonatomic,strong) UIImage *infoImage;
 @property (nonatomic,strong) UIImage *successImage;
 @property (nonatomic,strong) UIImage *failureImage;
+
+@property (nonatomic,strong) NSString *imageName;
 
 @property (nonatomic,readwrite) CGFloat progress;
 
@@ -40,7 +78,7 @@
 
 @implementation JLProgressHUD
 
--(UIView *)backgroundView
+- (UIView *)backgroundView
 {
     if (!_backgroundView)
     {
@@ -50,7 +88,7 @@
     return _backgroundView;
 }
 
--(UIView *)contentView
+- (UIView *)contentView
 {
     if (!_contentView)
     {
@@ -60,7 +98,7 @@
     return _contentView;
 }
 
--(UILabel *)statusLabel
+- (UILabel *)statusLabel
 {
     if (!_statusLabel)
     {
@@ -70,7 +108,7 @@
     return _statusLabel;
 }
 
--(UIImageView *)imageView
+- (UIImageView *)imageView
 {
     if (!_imageView)
     {
@@ -80,25 +118,29 @@
     return _imageView;
 }
 
--(JLLoadingAnimatedView *)loadingAnimatedView
+- (JLLoadingAnimatedView *)loadingAnimatedView
 {
     if (!_loadingAnimatedView)
     {
-        JLJLLoadingAnimatedViewSizeType type = [self getAnimatedViewSizeType];
+        CGRect rect = [self getloadingAnimatedViewRect];
         if (self.colorType == JLProgressHUDNormalColorTypeColor)
         {
-            self.loadingAnimatedView = [JLLoadingAnimatedView showType:type toView:self.contentView];
+            self.loadingAnimatedView = [[JLLoadingAnimatedView alloc]initWithFrame:rect andLineWidth:3.0 andLineColor:self.colors];
         }
         
         if (self.colorType == JLProgressHUDNormalColorTypeWhite)
         {
-            self.loadingAnimatedView = [JLLoadingAnimatedView showType:type withLineColor:@[[UIColor colorWithCss:@(0xeeeeee) alpha:0.8]] toView:self.contentView];
+            //@[[UIColor colorWithCss:@(0xeeeeee) alpha:0.8]]
+            self.loadingAnimatedView = [[JLLoadingAnimatedView alloc]initWithFrame:rect andLineWidth:3.0 andLineColor:@[[UIColor colorWithCss:@(0xeeeeee) alpha:0.8]]];
         }
         
         if (self.colorType == JLProgressHUDNormalColorTypeBlack)
         {
-            self.loadingAnimatedView = [JLLoadingAnimatedView showType:type withLineColor:@[[UIColor colorWithCss:@(0x111111) alpha:0.8]] toView:self.contentView];
+            //@[[UIColor colorWithCss:@(0x111111) alpha:0.8]]
+            self.loadingAnimatedView = [[JLLoadingAnimatedView alloc]initWithFrame:rect andLineWidth:3.0 andLineColor:@[[UIColor colorWithCss:@(0x111111) alpha:0.8]]];
         }
+    
+    
     }
     
     return _loadingAnimatedView;
@@ -108,32 +150,34 @@
 {
     if(!_ringView)
     {
-        _ringView = [[JLProgressAnimatedView alloc] initWithFrame:CGRectZero];
-        //_ringView.strokeEnd = 0.0;
+        JLProgressAnimatedViewType type = [self getRadius];
+        self.ringView = [[JLProgressAnimatedView alloc] initWithType:type];
     }
-    
-    // Update styling
-    _ringView.strokeColor = self.noAllProgressColor;
-    _ringView.strokeThickness = 2.0;
-    _ringView.radius = [self getRadius];
     
     return _ringView;
 }
 
-- (JLProgressAnimatedView *)backgroundRingView
+- (JLGifAnimatedView *)gifAnimatedView
 {
-    if(!_backgroundRingView)
+    if (!_gifAnimatedView)
     {
-        _backgroundRingView = [[JLProgressAnimatedView alloc] initWithFrame:CGRectZero];
-        _backgroundRingView.strokeEnd = 1.0;
+        self.gifAnimatedView = [[JLGifAnimatedView alloc]initWithGifImageName:self.imageName];
+        //self.gifAnimatedView.translatesAutoresizingMaskIntoConstraints = NO;
     }
     
-    // Update styling
-    _backgroundRingView.strokeColor = self.allProgressColor;
-    _backgroundRingView.strokeThickness = 2.0;
-    _backgroundRingView.radius = [self getRadius];
+    return _gifAnimatedView;
+}
+
+-(JLAcvitityIndicatorAnimatedView *)animatedView
+{
+    if (!_animatedView)
+    {
+        JLAcvitityIndicatorAnimatedType type = [self getAnimatedViewSizeType];
+        self.animatedView = [[JLAcvitityIndicatorAnimatedView alloc]initWithType:type];
+        //self.animatedView.translatesAutoresizingMaskIntoConstraints = NO;
+    }
     
-    return _backgroundRingView;
+    return _animatedView;
 }
 
 + (JLProgressHUD *)sharedView
@@ -147,7 +191,7 @@
     return sharedView;
 }
 
--(instancetype)initWithFrame:(CGRect)frame
+- (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame])
     {
@@ -158,6 +202,10 @@
         self.noAllProgressColor = [UIColor redColor];
         self.allProgressColor = [UIColor grayColor];
         self.imageViewSize = CGSizeMake(27.0, 27.0);
+        self.offSetY = 10.0;
+        self.animationInfoColor = [UIColor whiteColor];
+        self.animationSpinnerColor = [UIColor whiteColor];
+        self.colors = @[[UIColor redColor],[UIColor blueColor]];
         [self addSubview:self.backgroundView];
         [self addSubview:self.contentView];
         
@@ -179,7 +227,7 @@
     return self;
 }
 
-+(instancetype)allocWithZone:(struct _NSZone *)zone
++ (instancetype)allocWithZone:(struct _NSZone *)zone
 {
     static JLProgressHUD *toolAudio;
     
@@ -196,45 +244,80 @@
 
 + (void)showWithStatus:(NSString *)status
 {
-    [self showProgress:JLProgressHUDTypeNormal status:status colors:nil Progress:@0 image:nil];
+    [self showProgress:JLProgressHUDTypeNormal status:status Progress:@(-1) image:nil];
 }
 
 + (void)showInfoWithStatus:(nullable NSString *)status
 {
     
-    [self showProgress:JLProgressHUDTypeImage status:status colors:nil Progress:@0 image:[self sharedView].infoImage];
+    [self showProgress:JLProgressHUDTypeImage status:status Progress:@(-1) image:[self sharedView].infoImage];
 }
 
 + (void)showSuccessWithStatus:(NSString *)status
 {
-    [self showProgress:JLProgressHUDTypeImage status:status colors:nil Progress:@0 image:[self sharedView].successImage];
+    [self showProgress:JLProgressHUDTypeImage status:status Progress:@(-1) image:[self sharedView].successImage];
 }
 
 + (void)showFailureWithStatus:(NSString *)status
 {
-    [self showProgress:JLProgressHUDTypeImage status:status colors:nil Progress:@0 image:[self sharedView].failureImage];
+    [self showProgress:JLProgressHUDTypeImage status:status Progress:@(-1) image:[self sharedView].failureImage];
+}
+
++ (void)showAnimationWithStatus:(NSString*)status
+{
+    [self sharedView].animationType = JLProgressHUDAnimationTypeNormal;
+    [self sharedView].animation = YES;
+    [self showProgress:JLProgressHUDTypeAnimation status:status Progress:@(-1) image:nil];
+}
+
++ (void)showAnimationInfoWithStatus:(NSString *)status animated:(BOOL)animated
+{
+    [self sharedView].animationType = JLProgressHUDAnimationTypeInfo;
+    [self sharedView].animation = animated;
+    [self showProgress:JLProgressHUDTypeAnimation status:status Progress:@(-1) image:nil];
+}
+
++ (void)showAnimationSuccessWithStatus:(NSString *)status animated:(BOOL)animated
+{
+    [self sharedView].animationType = JLProgressHUDAnimationTypeSuccess;
+    [self sharedView].animation = animated;
+    [self showProgress:JLProgressHUDTypeAnimation status:status Progress:@(-1) image:nil];
+}
+
++ (void)showAnimationFailureWithStatus:(NSString *)status animated:(BOOL)animated
+{
+    [self sharedView].animationType = JLProgressHUDAnimationTypeFailure;
+    [self sharedView].animation = animated;
+    [self showProgress:JLProgressHUDTypeAnimation status:status Progress:@(-1) image:nil];
 }
 
 + (void)showWithImage:(UIImage *)image Status:(NSString *)status
 {
-    [self showProgress:JLProgressHUDTypeImage status:status colors:nil Progress:@0 image:image];
+    [self showProgress:JLProgressHUDTypeImage status:status Progress:@(-1) image:image];
+}
+
++ (void)showWithGifImageName:(NSString *)name Status:(NSString *)status
+{
+    [self sharedView].imageName = name;
+    [self showProgress:JLProgressHUDTypeGifImage status:status Progress:@(-1) image:nil];
 }
 
 + (void)showWithProgress:(NSNumber *)progress Status:(NSString *)status
 {
-    [self showProgress:JLProgressHUDTypeProgress status:status colors:nil Progress:progress image:nil];
+    [self showProgress:JLProgressHUDTypeProgress status:status Progress:progress image:nil];
 }
 
-+ (void)showProgress:(JLProgressHUDType)type status:(NSString *)status colors:(NSArray *)colors Progress:(NSNumber *)progress image:(UIImage *)image
++ (void)showProgress:(JLProgressHUDType)type status:(NSString *)status Progress:(NSNumber *)progress image:(UIImage *)image
 {
-    [[self sharedView] showProgress:type status:status colors:colors Progress:progress image:image];
+    [[self sharedView] showProgress:type status:status Progress:progress image:image];
 }
 
-- (void)showProgress:(JLProgressHUDType)type status:(NSString *)status colors:(NSArray *)colors Progress:(NSNumber *)progress image:(UIImage *)image
+- (void)showProgress:(JLProgressHUDType)type status:(NSString *)status Progress:(NSNumber *)progress image:(UIImage *)image
 {
     
     __weak JLProgressHUD * weakSelf = self;
     self.progress = progress.floatValue;
+    self.HUDType = type;
     [[NSOperationQueue mainQueue] addOperationWithBlock:^
     {
         __strong JLProgressHUD *strongSelf = weakSelf;
@@ -260,48 +343,50 @@
             
             if (type == JLProgressHUDTypeNormal)
             {
-                if (colors)
+                if(!strongSelf.loadingAnimatedView.superview)
                 {
-                    strongSelf.colorType = JLProgressHUDNormalColorTypeColor;
-                    strongSelf.loadingAnimatedView.lineColor = colors;
+                    [strongSelf.contentView addSubview:strongSelf.loadingAnimatedView];
+                    
                 }
                 
-                strongSelf.loadingAnimatedView.lineWidth = 3.0;
+                CGFloat centerY;
+                if(strongSelf.statusLabel.text && ![strongSelf.statusLabel.text isEqualToString:@""])
+                {
+                    centerY = strongSelf.contentView.frame.size.height/2 - self.offSetY;
+                }
+                else
+                {
+                    centerY = strongSelf.contentView.frame.size.height/2;
+                }
+                
+                strongSelf.loadingAnimatedView.center = CGPointMake(strongSelf.contentView.frame.size.width/2,centerY);
             }
             
             if (type == JLProgressHUDTypeProgress)
             {
-                // Add ring to HUD
-                if(!strongSelf.backgroundRingView.superview)
-                {
-                    [strongSelf.contentView addSubview:strongSelf.backgroundRingView];
-                }
-                
-                if(!strongSelf.ringView.superview)
-                {
-                    [strongSelf.contentView addSubview:strongSelf.ringView];
-                    
-                }
-                
-                // Set progress animated
-                [CATransaction begin];
-                [CATransaction setDisableActions:YES];
-                strongSelf.ringView.strokeEnd = strongSelf.progress;
-                [CATransaction commit];
-                
                 if(strongSelf.progress != -1)
                 {
+                    // Add ring to HUD
+                    if(!strongSelf.ringView.superview)
+                    {
+                        [strongSelf.contentView addSubview:strongSelf.ringView];
+                        
+                    }
+                    
+                    // Set progress animated
+                    strongSelf.ringView.progress =strongSelf.progress;
+                    
                     CGFloat centerY;
                     if(strongSelf.statusLabel.text && ![strongSelf.statusLabel.text isEqualToString:@""])
                     {
-                        centerY = strongSelf.contentView.frame.size.height/2 - 10;
+                        centerY = strongSelf.contentView.frame.size.height/2 - self.offSetY;
                     }
                     else
                     {
                         centerY = strongSelf.contentView.frame.size.height/2;
                     }
                     
-                    strongSelf.backgroundRingView.center = strongSelf.ringView.center = CGPointMake(strongSelf.contentView.frame.size.width/2,centerY);
+                    strongSelf.ringView.center = CGPointMake(strongSelf.contentView.frame.size.width/2,centerY);
                 }
             }
             
@@ -309,13 +394,13 @@
             {
                 if (!strongSelf.imageView.superview)
                 {
-                    strongSelf.imageView.frame = CGRectMake(0, 0, 27, 27);
+                    strongSelf.imageView.frame = CGRectMake(0, 0,strongSelf.imageViewSize.width, strongSelf.imageViewSize.height);
                     [strongSelf.contentView addSubview:strongSelf.imageView];
                     strongSelf.imageView.image = image;
                     CGFloat centerY;
                     if(strongSelf.statusLabel.text && ![strongSelf.statusLabel.text isEqualToString:@""])
                     {
-                        centerY = strongSelf.contentView.frame.size.height/2 - 10;
+                        centerY = strongSelf.contentView.frame.size.height/2 - self.offSetY;
                     }
                     else
                     {
@@ -326,47 +411,124 @@
                 }
                 
             }
+            
+            if (type == JLProgressHUDTypeGifImage)
+            {
+                if (!strongSelf.gifAnimatedView.superview)
+                {
+                    strongSelf.gifAnimatedView.frame = CGRectMake(0, 0,strongSelf.imageViewSize.width, strongSelf.imageViewSize.height);
+                    [strongSelf.contentView addSubview:strongSelf.gifAnimatedView];
+                    CGFloat centerY;
+                    if(strongSelf.statusLabel.text && ![strongSelf.statusLabel.text isEqualToString:@""])
+                    {
+                        centerY = strongSelf.contentView.frame.size.height/2 - self.offSetY;
+                    }
+                    else
+                    {
+                        centerY = strongSelf.contentView.frame.size.height/2;
+                    }
+                    
+                    strongSelf.gifAnimatedView.center = CGPointMake(strongSelf.contentView.frame.size.width/2,centerY);
+                }
+            }
+            
+            if (type == JLProgressHUDTypeAnimation)
+            {
+                if (!strongSelf.animatedView.superview)
+                {
+                    [strongSelf.contentView addSubview:strongSelf.animatedView];
+                }
+                
+                CGFloat centerY;
+                if(strongSelf.statusLabel.text && ![strongSelf.statusLabel.text isEqualToString:@""])
+                {
+                    centerY = strongSelf.contentView.frame.size.height/2 - self.offSetY;
+                }
+                else
+                {
+                    centerY = strongSelf.contentView.frame.size.height/2;
+                }
+                
+                strongSelf.animatedView.center = CGPointMake(strongSelf.contentView.frame.size.width/2,centerY);
+                
+                if (strongSelf.animationType == JLProgressHUDAnimationTypeNormal)
+                {
+                    [strongSelf.animatedView startAnimating];
+                }
+                
+                if (strongSelf.animationType == JLProgressHUDAnimationTypeInfo)
+                {
+                    [strongSelf.animatedView updateToInfo:strongSelf.animation];
+                }
+                
+                if (strongSelf.animationType == JLProgressHUDAnimationTypeSuccess)
+                {
+                    [strongSelf.animatedView updateToSuccess:strongSelf.animation];
+                }
+                
+                if (strongSelf.animationType == JLProgressHUDAnimationTypeFailure)
+                {
+                    [strongSelf.animatedView updateToFail:strongSelf.animation];
+                }
+            }
         
             UIView *view = [[UIApplication sharedApplication] getViewInCurrentViewController];
-            [view addSubview:self];
+            [view addSubview:strongSelf];
         }
     }];
 }
 
--(CGFloat)getRadius
+-(CGRect)getloadingAnimatedViewRect
 {
-    CGFloat radius = 0.0;
+    CGRect rect = CGRectMake(0, 0, 0, 0);
     if (self.standardWidthType == JLProgressHUDStandardWidthTypeNormal)
     {
-        radius = self.statusLabel.text && ![self.statusLabel.text isEqualToString:@""] ? 18.0 : 24.0;
+        rect = CGRectMake(0, 0, 60, 60);
     }
     
     if (self.standardWidthType == JLProgressHUDStandardWidthTypeSmall)
     {
-        radius = self.statusLabel.text && ![self.statusLabel.text isEqualToString:@""] ? 13.0 : 19.0;
+        rect = CGRectMake(0, 0, 40, 40);
+
     }
     
-    return radius;
+    return rect;
 }
 
--(JLJLLoadingAnimatedViewSizeType)getAnimatedViewSizeType
+- (JLProgressAnimatedViewType)getRadius
 {
-    JLJLLoadingAnimatedViewSizeType type = JLJLLoadingAnimatedViewSizeTypeBig;
-    
+    JLProgressAnimatedViewType type = JLProgressAnimatedViewTypeNormal;
     if (self.standardWidthType == JLProgressHUDStandardWidthTypeNormal)
     {
-        type = JLJLLoadingAnimatedViewSizeTypeNormal;
+        type = JLProgressAnimatedViewTypeNormal;
     }
     
     if (self.standardWidthType == JLProgressHUDStandardWidthTypeSmall)
     {
-        type = JLJLLoadingAnimatedViewSizeTypeSmall;
+        type = JLProgressAnimatedViewTypeSmall;
     }
     
     return type;
 }
 
--(CGFloat)getStandardWidth
+- (JLAcvitityIndicatorAnimatedType)getAnimatedViewSizeType
+{
+    JLAcvitityIndicatorAnimatedType type = JLAcvitityIndicatorAnimatedTypeNormal;
+    
+    if (self.standardWidthType == JLProgressHUDStandardWidthTypeNormal)
+    {
+        type = JLAcvitityIndicatorAnimatedTypeNormal;
+    }
+    
+    if (self.standardWidthType == JLProgressHUDStandardWidthTypeSmall)
+    {
+        type = JLAcvitityIndicatorAnimatedTypeSmall;
+    }
+    
+    return type;
+}
+
+- (CGFloat)getStandardWidth
 {
     CGFloat contentWidth = 0.0;
     
@@ -383,7 +545,7 @@
     return contentWidth;
 }
 
--(CGFloat)getContentWidthWithStatus:(NSString *)status
+- (CGFloat)getContentWidthWithStatus:(NSString *)status
 {
     CGSize contentSize = [NSObject adaptiveText:status showHeight:20.0 fontSize:self.statusFont];
     CGFloat contentWidth;
@@ -405,7 +567,7 @@
     return contentWidth;
 }
 
--(UIColor *)getContentViewColor
+- (UIColor *)getContentViewColor
 {
     UIColor *color;
     if (self.styleType == JLProgressHUDStyleTypeWhite)
@@ -421,7 +583,7 @@
     return color;
 }
 
--(UIColor *)getstatusLabelTextColor
+- (UIColor *)getstatusLabelTextColor
 {
     UIColor *color;
     if (self.colorType == JLProgressHUDNormalColorTypeBlack)
@@ -450,7 +612,7 @@
     return color;
 }
 
--(void)setcolorType
+- (void)setcolorType
 {
     if (self.colorType == JLProgressHUDNormalColorTypeColor)
     {
@@ -485,21 +647,107 @@
 
 - (void)dismissWithDelay:(NSTimeInterval)delay
 {
+    __weak JLProgressHUD * weakSelf = self;
+    weakSelf.progress = -1.0;
     [UIView animateWithDuration:delay animations:^
      {
-         self.alpha = 0.0;
-         [JLLoadingAnimatedView dismiss];
-         [self.ringView removeFromSuperview];
-         [self.backgroundRingView removeFromSuperview];
-         [self.imageView removeFromSuperview];
-         [self.contentView removeFromSuperview];
-         [self.backgroundView removeFromSuperview];
+         __strong JLProgressHUD *strongSelf = weakSelf;
+         strongSelf.alpha = 0.0;
+         
+         if (strongSelf.HUDType == JLProgressHUDTypeNormal)
+         {
+             [self.loadingAnimatedView removeFromSuperview];
+             self.loadingAnimatedView = nil;
+         }
+         
+         if (strongSelf.HUDType == JLProgressHUDTypeProgress)
+         {
+             [strongSelf.ringView removeFromSuperview];
+         }
+         
+         if (strongSelf.HUDType == JLProgressHUDTypeImage)
+         {
+             [strongSelf.imageView removeFromSuperview];
+         }
+         
+         if (strongSelf.HUDType == JLProgressHUDTypeGifImage)
+         {
+             [strongSelf.gifAnimatedView removeFromSuperview];
+         }
+         
+         if (strongSelf.HUDType == JLProgressHUDTypeAnimation)
+         {
+             [strongSelf.animatedView stopAnimate];
+             [strongSelf.animatedView removeFromSuperview];
+         }
+         
+         [strongSelf.contentView removeFromSuperview];
+         [strongSelf.backgroundView removeFromSuperview];
          
      } completion:^(BOOL finished)
      {
-         self.alpha = 1.0;
-         [self removeFromSuperview];
+         __strong JLProgressHUD *strongSelf = weakSelf;
+         strongSelf.alpha = 1.0;
+         [strongSelf removeFromSuperview];
      }];
+}
+
+-(void)setColorType:(JLProgressHUDNormalColorType)colorType
+{
+    _colorType = colorType;
+}
+
+-(void)setStyleType:(JLProgressHUDStyleType)styleType
+{
+    _styleType = styleType;
+}
+
+-(void)setStandardWidthType:(JLProgressHUDStandardWidthType)standardWidthType
+{
+    _standardWidthType = standardWidthType;
+}
+
+-(void)setStatusFont:(UIFont *)statusFont
+{
+    _statusFont = statusFont;
+}
+
+-(void)setAllProgressColor:(UIColor *)allProgressColor
+{
+    _allProgressColor = allProgressColor;
+}
+
+-(void)setNoAllProgressColor:(UIColor *)noAllProgressColor
+{
+    _noAllProgressColor = noAllProgressColor;
+}
+
+-(void)setImageViewSize:(CGSize)imageViewSize
+{
+    _imageViewSize = imageViewSize;
+}
+
+-(void)setOffSetY:(CGFloat)offSetY
+{
+    _offSetY = offSetY;
+}
+
+-(void)setAnimationInfoColor:(UIColor *)animationInfoColor
+{
+    _animationInfoColor = animationInfoColor;
+    [self.animatedView setInfoColor:animationInfoColor];
+}
+
+
+-(void)setAnimationSpinnerColor:(UIColor *)animationSpinnerColor
+{
+    _animationSpinnerColor = animationSpinnerColor;
+    [self.animatedView setSpinnerColor:animationSpinnerColor];
+}
+
+-(void)setColors:(NSArray *)colors
+{
+    _colors = colors;
 }
 
 @end
