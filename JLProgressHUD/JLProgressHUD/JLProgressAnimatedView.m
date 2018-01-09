@@ -84,6 +84,8 @@
         _padding = 6.0;
         _backgroundLayer = [CAShapeLayer layer];
         _animatedType = type;
+        self.progressColor = [UIColor redColor];
+        self.progressBackgroundColor = [UIColor lightGrayColor];
         CGFloat width = self.bounds.size.width;
         CGFloat height = self.bounds.size.height;
         CGPoint center = CGPointMake(width/2, height/2);
@@ -98,7 +100,7 @@
         _backgroundLayer.strokeEnd = 1.0;
         _backgroundLayer.lineCap = kCALineCapRound;
         _backgroundLayer.lineWidth = 3.0;
-        _backgroundLayer.strokeColor = [UIColor lightGrayColor].CGColor;
+        _backgroundLayer.strokeColor = self.progressBackgroundColor.CGColor;
         _backgroundLayer.fillColor = [UIColor clearColor].CGColor;
         _backgroundLayer.anchorPoint = CGPointMake(0.5, 0.5);
         _backgroundLayer.position = center;
@@ -111,7 +113,7 @@
         _progressLayer.strokeEnd = 0.00;
         _progressLayer.lineCap = kCALineCapRound;
         _progressLayer.lineWidth = 3.0;
-        _progressLayer.strokeColor = [UIColor blueColor].CGColor;
+        _progressLayer.strokeColor = self.progressColor.CGColor;
         _progressLayer.fillColor = [UIColor clearColor].CGColor;
         _progressLayer.anchorPoint = CGPointMake(0.5, 0.5);
         _progressLayer.position = center;
@@ -127,6 +129,16 @@
     }
     
     return self;
+}
+
+-(void)setProgressColor:(UIColor *)progressColor
+{
+    _progressColor = progressColor;
+}
+
+-(void)setProgressBackgroundColor:(UIColor *)progressBackgroundColor
+{
+    _progressBackgroundColor = progressBackgroundColor;
 }
 
 @end

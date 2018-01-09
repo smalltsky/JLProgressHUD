@@ -715,11 +715,13 @@
 -(void)setAllProgressColor:(UIColor *)allProgressColor
 {
     _allProgressColor = allProgressColor;
+    self.ringView.progressColor = allProgressColor;
 }
 
 -(void)setNoAllProgressColor:(UIColor *)noAllProgressColor
 {
     _noAllProgressColor = noAllProgressColor;
+    self.ringView.progressBackgroundColor = noAllProgressColor;
 }
 
 -(void)setImageViewSize:(CGSize)imageViewSize
