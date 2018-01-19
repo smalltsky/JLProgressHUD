@@ -9,8 +9,8 @@
 JLProgressHUD added more color chrysanthemum, can be custom color chrysanthemum Only can be used on the iOS
 JLProgressHUD添加了多颜色菊花，可以自定义菊花颜色 只可以在iOS上使用
 
-![JLProgressHUD](http://i1.bvimg.com/626523/581ebf686ed9cccc.gif)
-![JLProgressHUD](http://i1.bvimg.com/626523/c6cedd4ae290c2f5.gif)
+![JLProgressHUD](http://zjb.kuaijielife.com/Uploads/Upicture/lqt/JLProgressHUD0.gif)
+![JLProgressHUD](http://zjb.kuaijielife.com/Uploads/Upicture/lqt/JLProgressHUD1.gif)
 
 
 ## Demo		
