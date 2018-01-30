@@ -183,11 +183,11 @@
 + (JLProgressHUD *)sharedView
 {
     static JLProgressHUD *sharedView;
-#if !defined(SV_APP_EXTENSIONS)
+/*#if !defined(SV_APP_EXTENSIONS)
     sharedView = [[self alloc] initWithFrame:[[[UIApplication sharedApplication] delegate] window].bounds];
-#else
+#else*/
     sharedView = [[self alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-#endif
+//#endif
     return sharedView;
 }
 
@@ -652,7 +652,8 @@
     [UIView animateWithDuration:delay animations:^
      {
          __strong JLProgressHUD *strongSelf = weakSelf;
-         strongSelf.alpha = 0.0;
+         
+         [[NSOperationQueue mainQueue] cancelAllOperations];
          
          if (strongSelf.HUDType == JLProgressHUDTypeNormal)
          {
@@ -687,7 +688,7 @@
      } completion:^(BOOL finished)
      {
          __strong JLProgressHUD *strongSelf = weakSelf;
-         strongSelf.alpha = 1.0;
+         
          [strongSelf removeFromSuperview];
      }];
 }
