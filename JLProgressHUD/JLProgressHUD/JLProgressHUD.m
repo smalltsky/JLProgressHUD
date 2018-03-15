@@ -473,6 +473,21 @@
             }
         
             UIView *view = [[UIApplication sharedApplication] getViewInCurrentViewController];
+            
+            if ([UIScreen mainScreen].bounds.size.height != view.frame.size.height)
+            {
+                CGFloat adjustPx = ([UIScreen mainScreen].bounds.size.height - view.frame.size.height)/2;
+                strongSelf.contentView.frame = CGRectMake(strongSelf.contentView.frame.origin.x,strongSelf.contentView.frame.origin.y-adjustPx, strongSelf.contentView.frame.size.width, strongSelf.contentView.frame.size.height);
+            }
+            
+            if ([view isKindOfClass:[UIScrollView class]])
+            {
+                UIScrollView *scrollView = (UIScrollView *)view;
+                NSLog(@"%f",scrollView.contentOffset.y);
+                CGFloat adjustPx = scrollView.contentOffset.y;
+                strongSelf.contentView.frame = CGRectMake(strongSelf.contentView.frame.origin.x,strongSelf.contentView.frame.origin.y+adjustPx, strongSelf.contentView.frame.size.width, strongSelf.contentView.frame.size.height);
+            }
+            
             [view addSubview:strongSelf];
         }
     }];
